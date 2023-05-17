@@ -122,7 +122,7 @@ constructor() {
     this.correspondenceCountryError ='';
     this.correspondenceZipError = '';
     this.correspondenceCityOptions = [
-        { label: " Select City", value: "" },
+        { label: "Select City", value: "" },
         { label: "Mumbair", value: "mumbai" },
         { label: "Hyderabad", value: "hyderabadr" },
         { label: "Bengalurur", value: "bengalurur" },
@@ -198,51 +198,70 @@ constructor() {
     justify-content: center;
     align-items: center;
     min-height: 90vh;
-    background-image: linear-gradient(#bf79bd,#79e6ee);
+    background-image: linear-gradient(to right,violet, indigo,yellow,green,blue,indigo,violet);
     
 
 }
+@keyframes mymove {
+  from {background-color: red;}
+  to {background-color: blue;}
+}
 
 form {
-  display: left;
+  /* padding:20px; */
+  /* display: left; */
+  min-height: 90vh;
   flex-wrap: wrap;
   gap: 1rem;
-  align-items: left;
-  justify-content: left;
+  align-items: center;
+  justify-content: center;
    margin-left: 11rem ; 
   max-width: 1000px;
- 
+  background-image: linear-gradient(#c1c8dd,#5397b2);
+ animation: mymove 5s infinite;
+ box-shadow: 0px 0px 15px currentcolor;
+  border: 5px solid currentcolor;
 }
 
 label {
   font-weight: bold;
-  margin-right: 0.5rem;
+  margin-left:10px;
+
 }
 
 input,
 select {
   padding: 0.5rem;
   font-size: 1rem;
-  border: 2px solid #ccc;
+  border: 2px solid #000000;
   border-radius: 7px;
   box-sizing: border-box;
+  border:none;
 }
 
 input:focus,
 select:focus {
   outline: none;
   border-color: #3366cc;
+  
+}
+.uni-select{
+  width:213px;
 }
 
 .error {
-  color: red;
-  font-size: 0.8rem;
-  margin-left: 0.5rem;
+  color:  #fc0000;
+  float:left;
+  /* font-size: 0.8rem; */
+  /* margin-left: 0.5rem; */
 }
 .emp {
-  float: left;
+  float:left;
   width: 31.33%;
   padding: 10px;
+text-align:center;
+  
+
 
 }
 .buttom button{
@@ -261,7 +280,7 @@ font-size:1.1em;
 
   color:white;
   font-size:bold;
-  background-image: linear-gradient(to right, #61045f,#aa076b);
+  background-image: linear-gradient(to right, #9e5060,#db4fa5);
 }
 @media (max-width: 500px) {
   .emp{
@@ -301,7 +320,7 @@ font-size:1.1em;
         <br>
        
         <label for="designation-select">Designation:*</label><br>
-        <select id="designation-select" @change=${this.handleDesignationChange}  required>
+        <select id="designation-select" class="uni-select" @change=${this.handleDesignationChange}  required>
         <div class="bubu">
             ${this.designationOptions.map(
                 (option) =>
@@ -313,7 +332,7 @@ font-size:1.1em;
         
        
         <label for="department-select">Department:*</label><br>
-        <select id="department-select" @change=${this.handleDepartmentChange}  required>
+        <select id="department-select" class="uni-select" @change=${this.handleDepartmentChange}  required>
             ${this.departmentOptions.map(
                 (option) =>
                 html`<option value="${option.value}">${option.label}</option>`
@@ -355,14 +374,14 @@ font-size:1.1em;
         
         
         <label for="correspondence-city-input">Correspondence City:*</label><br>
-        <select id="correspondence-city-input" @change=${this.handleCorrespondenceCityChange} required>
+        <select id="correspondence-city-input" class="uni-select" @change=${this.handleCorrespondenceCityChange} required>
         ${this.correspondenceCityOptions.map((option) =>html`<option value="${option.value}">${option.label}</option>`)}
         </select><br>
         
        
         
         <label for="correspondence-state-input">Correspondence State:*</label><br>
-        <select id="correspondence-state-input" @change=${this.handleCorrespondenceStateChange} required>
+        <select id="correspondence-state-input" class="uni-select" @change=${this.handleCorrespondenceStateChange} required>
             ${this.correspondenceStateOptions.map(
             (option) =>
             html`<option value="${option.value}">${option.label}</option>`)}
@@ -370,7 +389,7 @@ font-size:1.1em;
         
        
         <label for="correspondence-country-input">Correspondence Country:*</label><br>
-        <select id="correspondence-country-input" @change=${this.handleCorrespondenceCountryChange} required>
+        <select id="correspondence-country-input" class="uni-select" @change=${this.handleCorrespondenceCountryChange} required>
         ${this.correspondenceCountryOptions.map(
             (option) =>
             html`<option value="${option.value}">${option.label}</option>`)}
@@ -404,21 +423,21 @@ font-size:1.1em;
         <span class="error">${this.permanentZipError}</span><br>
       
         <label for="permanent-city-input">City:*</label><br>
-        <select id="permanent-city-input" @change=${this.handlePermanentCityChange} required>
+        <select id="permanent-city-input" class="uni-select" @change=${this.handlePermanentCityChange} required>
         ${this.permanentCityOptions.map(
         (option) =>
             html`<option value="${option.value}">${option.label}</option>`)}
         </select><br>
       
         <label for="permanent-state-input">State:*</label><br>
-        <select id="permanent-state-input" @change=${this.handlePermanentStateChange} required>
+        <select id="permanent-state-input" class="uni-select" @change=${this.handlePermanentStateChange} required>
         ${this.permanentStateOptions.map(
         (option) =>
         html`<option value="${option.value}">${option.label}</option>`)}
         </select><br>
        
         <label for="permanent-state-input">Country:*</label><br>
-        <select id="permanent-country-input" @change=${this.handlePermanentCountryChange} required>
+        <select id="permanent-country-input" class="uni-select" @change=${this.handlePermanentCountryChange} required>
         ${this.permanentCountryOptions.map(
         (option) =>
         html`<option value="${option.value}">${option.label}</option>`)}
