@@ -208,7 +208,7 @@ render() {
            <h2>${item.name}</h2>
             <p>${item.designation}</p>
             <td>
-                  <button href="edit.html" @click="${() => this.editUser(item)}">Edit</button>
+                  <button  @click="${() => this.editUser(item)}">Edit</button>
                   <button class="delete-button" @click="${() => this.confirmDeleteUser(item)}">Delete</button>
             </td>
           </div>
