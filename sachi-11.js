@@ -61,6 +61,7 @@ class EmployeeForm extends LitElement {
         permanentCityOptions: { type: Array },
         permanentStateOptions: { type: Array },
         permanentCountryOptions: { type: Array },
+        image: { type: String },
     };
     }
 
@@ -92,7 +93,7 @@ constructor() {
     ];
     this.departmentOptions = [
         { label: "Select Department", value: "" },
-        { label: "IT", value: "it" },
+        { label: "IT", value: "IT" },
         { label: "HR", value: "hr" },
         { label: "Finance", value: "finance" },
         { label: "Marketing", value: "marketing" },
@@ -187,7 +188,8 @@ constructor() {
         { label: "India", value: "india" },
         { label: "U.S.", value: "United States" },
         
-    ];
+    ]
+    this.image = "";
     }
 
     static get styles() {
@@ -202,10 +204,7 @@ constructor() {
     
 
 }
-@keyframes mymove {
-  from {background-color: red;}
-  to {background-color: blue;}
-}
+
 
 form {
   /* padding:20px; */
@@ -236,7 +235,7 @@ select {
   border: 2px solid #000000;
   border-radius: 7px;
   box-sizing: border-box;
-  border:none;
+  /* border:none; */
 }
 
 input:focus,
@@ -287,6 +286,16 @@ font-size:1.1em;
     width:100%;
   }
 }
+
+/* image */
+input[type="file"] {
+    display: ;
+    width:210px ;
+
+  }
+
+
+
 
   `;
   }
@@ -442,6 +451,10 @@ font-size:1.1em;
         (option) =>
         html`<option value="${option.value}">${option.label}</option>`)}
         </select><br>
+
+        <label for="image-upload">Upload Image:</label><br />
+        <input type="file" id="image-upload" accept="image/*" @change=${this.handleImageUpload}  required/>
+            <br />
         </div>
          
     </form>
@@ -985,6 +998,20 @@ validateEmergencyContact(e) {
             break;
         }
       }
+
+      handleImageUpload(e) {
+        const file = e.target.files[0];
+        const reader = new FileReader();
+    
+        reader.onloadend = () => {
+          this.image = reader.result;
+        };
+    
+        if (file) {
+          reader.readAsDataURL(file);
+        }
+      }
+    
       
 
 handleSubmit(e) {
@@ -1012,7 +1039,8 @@ handleSubmit(e) {
         permanentCity: this.permanentCity,
         permanentState: this.permanentState,
         permanentCountry: this.permanentCountry,
-        permanentZip: this.permanentZip
+        permanentZip: this.permanentZip,
+        image: this.image,
     };
     const data = JSON.parse(localStorage.getItem("formData") || "[]");
     data.push(formData);

@@ -36,7 +36,6 @@ class Navbar extends LitElement {
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="page.html">Data</a></li>
-          <li><a href="#">Contact</a></li>
         </ul>
       </nav>
     `;

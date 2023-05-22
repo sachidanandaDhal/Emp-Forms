@@ -1,5 +1,7 @@
 import { LitElement, html, css } from 'lit-element';
 
+
+
 class FormDataPage extends LitElement {
 
   static get properties() {
@@ -18,19 +20,36 @@ class FormDataPage extends LitElement {
 
   
   static styles = css`
+  
+    :host{
+    display: block;
+    justify-content: center;
+    align-items: center;
+    /* min-height: 90vh; */
+    background: linear-gradient(-45deg, #d585aa, #db96af, #88cae1, #bda7e3);
+      background-size: 400% 400%;
+      animation: gradient 10s ease infinite;
+  
+    
+
+}
+
 
     .card {
-  background-color: #fff;
+  background-color: #fd0000;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  border-radius: 5px;
+  border-radius: 40px;
   margin-bottom: 20px;
   overflow: hidden;
+  background-image: linear-gradient(#74d2f4,#e68dd4);
 }
 
 .card-header {
-  background-color: #d490d1;
-  color: #fff;
+  background-color: #54004a;
+  background-image: linear-gradient( #f104d5,#023547);
+  color: #ffffff;
   padding: 20px;
+  display: flex;
 }
 
 .card-header h2 {
@@ -51,7 +70,7 @@ class FormDataPage extends LitElement {
 .sub-card-body h1{
   font-size:1.4em;
   text-decoration:underline;
-  text-decoration-color:#d490d1;
+  text-decoration-color:#000000;
   text-decoration-thickness: 3px;
   text-underline-offset:12px;
   
@@ -73,11 +92,12 @@ class FormDataPage extends LitElement {
 #all-table-data {
     margin-top: 10px;
     margin-bottom: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #ee0909;
     border-radius: 5px;
     padding: 5px;
     font-size: 14px;
     display: 'flex',
+   
     
 
   }
@@ -92,16 +112,11 @@ class FormDataPage extends LitElement {
     border: 1px solid #ccc;
   }
 
-  input[type="text"] {
-    padding: 0.5rem;
-  font-size: 1rem;
   
-  
-  }
 
   button {
-    padding: 5px 10px;
-    background-color:  #00eb2f;
+    padding: 10px 50px;
+    background-color:  #0842ff;
     color: #fff;
     border: none;
     cursor: pointer;
@@ -123,45 +138,26 @@ class FormDataPage extends LitElement {
   .delete-button:hover {
     background-color: #ff0d00;
   }
+#search-bar{
+ width: 30px;
+ border-color: #3366cc;
+ padding: 1px 500px;
 
-  .position33{
-    display:flex;
-  }
-  .position33 h1{
-    font-size:1em;
-    margin-left: 90px;
-  }
-  .table-body{
-    display:flex;
-    flex-direction:column;
-  }
-  .position34 {
-  
-    display:flex;
-  
-  }
-  .position34 h1{
-    font-size:1em;
-    margin-left:90px;
+}
+
+#search-bar  input[type=text]:focus {
+  width: 500px;
+}
+//////////
+input[type="text"] {
+  padding: 10rem;
+  font-size: 1rem;
+  border: 2px solid #c20808;
+  border-radius: 10px;
+  box-sizing: border-box;
+ 
   
   }
-  .btn{
-    display:flex;
-    justify-content:center;
-  }
-  .btn #save,#cancel{
-    margin-left: 90px;
-    width:150px;
-    height:30px;
-
-  }
-  .table-body{
-    height:300px;
-    overflow:scroll;
-  }
-
-
-  
 input,
 select {
   padding: 0.5rem;
@@ -172,21 +168,188 @@ select {
   
 }
 
-input:focus,
-select:focus {
-  outline: none;
-  border-color: #3366cc;
-  
-}
-.uni-select{
+    input:focus,
+    select:focus {
+      outline: none;
+      border-color: #3366cc;
+
+    }
+
+    .uni-select{
   width:213px;
 }
 
-#search-bar{
- width: 300px;
- border-color: #3366cc;
+    .overlay {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      /* background-image: linear-gradient(#ffc002,#00bbff); */
+      background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+      background-size: 400% 400%;
+      animation: gradient 8s ease infinite;
+      overflow-x: hidden;
+      transition: 0.5s;
+    }
+    @keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    
+    }
 
+    .overlay-content {
+      position: relative;
+      top: 9%;
+      width: 100%;
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .overlay a {
+      padding: 8px;
+      text-decoration: none;
+      font-size: 36px;
+      color: #818181;
+      display: block;
+      transition: 0.3s;
+    }
+
+    .overlay a:hover,
+    .overlay a:focus {
+      color: rgb(0, 255, 81);
+    }
+
+    .overlay .closebtn {
+      position: absolute;
+      top: 20px;
+      right: 45px;
+      font-size: 40px;
+    }
+
+    @media screen and (max-height: 450px) {
+      .overlay a {
+        font-size: 20px;
+      }
+      .overlay .closebtn {
+        font-size: 40px;
+        top: 15px;
+        right: 40px;
+      }
+    }
+
+    .position33 {
+      display: flex;
+    }
+    .position33 h1 {
+      font-size: 1em;
+      margin-left: 90px;
+    }
+    .table-body {
+      display: flex;
+      flex-direction: column;
+    }
+    .position34 {
+      display: flex;
+    }
+    .position34 h1 {
+      font-size: 1em;
+      margin-left: 90px;
+    }
+    .btn {
+      display: flex;
+      justify-content: center;
+      margin-top: 5px;
+      margin: 10px;
+      padding: 10px;
+      
+    }
+    .btn #save,
+    #cancel {
+      margin-left: 90px;
+      width: 150px;
+      height: 30px;
+    }
+
+/* abc */
+
+  
+.cube {
+  position: absolute;
+  top: 80vh;
+  left: 45vw;
+  width: 10px;
+  height: 10px;
+  border: solid 1px #D7D4E4;
+  transform-origin: top left;
+  transform: scale(0) rotate(0deg) translate(-50%, -50%);
+  animation: cube 12s ease-in forwards infinite;
 }
+.cube:nth-child(2n) {
+  border-color: #FFF ;
+}
+.cube:nth-child(2) {
+  animation-delay: 2s;
+  left: 25vw;
+  top: 40vh;
+}
+.cube:nth-child(3) {
+  animation-delay: 4s;
+  left: 75vw;
+  top: 50vh;
+}
+.cube:nth-child(4) {
+  animation-delay: 6s;
+  left: 90vw;
+  top: 10vh;
+}
+.cube:nth-child(5) {
+  animation-delay: 8s;
+  left: 10vw;
+  top: 85vh;
+}
+.cube:nth-child(6) {
+  animation-delay: 10s;
+  left: 50vw;
+  top: 10vh;
+}
+
+
+
+
+@keyframes cube {
+  from {
+    transform: scale(0) rotate(0deg) translate(-50%, -50%);
+    opacity: 1;
+  }
+  to {
+    transform: scale(20) rotate(960deg) translate(-50%, -50%);
+    opacity: 0;
+  }
+}
+
+//image
+.image-container{
+  border-radius: 200px;
+  width: 100px;
+   height: 100px;
+   display: flex;
+}
+.image-container img {
+    /* Add your desired styles for the image here */
+    /* For example: */
+   
+    border-radius: 200px;
+    width: 100px;
+   height: 100px;
+  }
+
+
 
   `;
 
@@ -195,22 +358,20 @@ render() {
   return html`
   
     <div id="data">
-      <h1>Form Data</h1>
       <div id="search-bar">
         <label for="search-input" ></label>
         <input type="text" id="search-input" @input="${this.handleSearch}" placeholder="Search.." />
       </div>
       <ol>
-      ${this.filteredformData.map(item => html`
-<li>
-       <div class="card">
+        ${this.filteredformData.map(item => html`
+        <li>
+        <div class="card">
           <div class="card-header">
-           <h2>${item.name}</h2>
-            <p>${item.designation}</p>
-            <td>
-                  <button  @click="${() => this.editUser(item)}">Edit</button>
-                  <button class="delete-button" @click="${() => this.confirmDeleteUser(item)}">Delete</button>
-            </td>
+          <div class="image-container">
+                <img src="${item.image}" alt="Profile Image">
+              </div>
+
+           <h2>Name: :${item.name}</h2>
           </div>
           <div class="card-body">
             <div class="sub-card-body">
@@ -222,6 +383,7 @@ render() {
             <p><strong>Secondary Number:</strong> ${item.secondaryContact}</p>
             <p><strong>Emergency Number:</strong> ${item.emergencyContact}</p>
             <p><strong>Department:</strong> ${item.department}</p>
+            <p><strong>Designation:</strong>${item.designation}</p>
             </div>
             <div class="sub-card-body">
             
@@ -245,20 +407,35 @@ render() {
             <p><strong>Permanent Zip:</strong> ${item.permanentZip}</p>
             </div>
             </div>
+            <div class="btn">
+                  <button @click="${() => this.editUser(item)}">Edit</button>
+                  </div>
           </div>
         </div>
+        
+        
         ${this.editingUser === item ? html`
-        <div class=table-body>
+       
+        <div id="myNav" class="overlay">
+        
+
+        <div class="overlay-content">
+        <div  class=table-body>
+
+        <div class="cube"></div>
+       <div class="cube"></div>
+       <div class="cube"></div>
+       <div class="cube"></div>
+       <div class="cube"></div>
           <div class="position33">
             
                 <h1><strong>Name:</strong><br><input type="text" .value="${item.name}" @input="${e => item.name = e.target.value}"></h1>
                 <h1><strong>Employee Code:</strong><br><input type="text" .value="${item.empCode}" @input="${e => item.empCode = e.target.value}"></h1>
                 <h1><strong>Official Email :</strong><br><input type="text" .value="${item.officialEmail}" @input="${e => item.officialEmail = e.target.value}"></h1>
                  <h1><strong>Personal Email Address:</strong><br><input type="text" .value="${item.personalEmail}" @input="${e => item.personalEmail = e.target.value}"></h1>
-</div>
+          </div>
 
-
-<div class="position33">
+          <div class="position33">
                
               <h1><strong>Designation:</strong><br><input type="text" .value="${item.designation}" @input="${e => item.designation = e.target.value}"></h1>
                 <h1><strong>Department:</strong><br><input type="text" .value="${item.department}" @input="${e => item.department = e.target.value}"></h1>
@@ -267,57 +444,73 @@ render() {
                 
           </div> 
 
-
           <div class="position34">
               
                 <h1><strong>Emergency Contact:</strong><br><input type="text" .value="${item.emergencyContact}" @input="${e => item.emergencyContact = e.target.value}"></h1>
                 <h1><strong>Correspondence Address 1:</strong><br><input type="text" .value="${item.correspondenceAddressLine1}" @input="${e => item.correspondenceAddressLine1 = e.target.value}"></h1>
                 <h1><strong>Correspondence Address 2:</strong><br><input type="text" .value="${item.correspondenceAddressLine2}" @input="${e => item.correspondenceAddressLine2 = e.target.value}"></h1>
                 <h1><strong>Correspondence Landmark:</strong><br><input type="text" .value="${item.correspondenceLandmark}" @input="${e => item.correspondenceLandmark = e.target.value}"></h1>
-</div>
+          </div>
 
-
-<div class="position34">
+          <div class="position34">
 
                 <h1><strong>Correspondence City:</strong><br><input type="text" .value="${item.correspondenceCity}" @input="${e => item.correspondenceCity = e.target.value}"></h1>
                 <h1><strong>Correspondence Country:</strong><br><input type="text" .value="${item.correspondenceCountry}" @input="${e => item.correspondenceCountry = e.target.value}"></h1>
                 <h1><strong>Correspondence State:</strong><br><input type="text" .value="${item.correspondenceState}" @input="${e => item.correspondenceState = e.target.value}"></h1>
                 <h1><strong>Correspondence Zip:</strong><br><input type="text" .value="${item.correspondenceZip}" @input="${e => item.correspondenceZip = e.target.value}"></h1>
-</div>
+          </div>
 
-          
-       <div class="position33">
+          <div class="position33">
             
                 <h1><strong>Permanent Address 1:</strong><br><input type="text" .value="${item.permanentAddressLine1}" @input="${e => item.permanentAddressLine1 = e.target.value}"></h1>
                 <h1><strong>Permanent Address 2:</strong><br><input type="text" .value="${item.permanentAddressLine2}" @input="${e => item.permanentAddressLine2 = e.target.value}"></h1>
                 <h1><strong>Permanent Landmark:</strong><br><input type="text" .value="${item.permanentLandmark}" @input="${e => item.permanentLandmark = e.target.value}"></h1>
                 <h1><strong>Permanent City:</strong><br><input type="text" .value="${item.permanentCity}" @input="${e => item.permanentCity = e.target.value}"></h1>
-</div>
+          </div>
 
 
-<div class="position33">
+          <div class="position33">
                 <h1><strong>Permanent Country:</strong><br><input type="text" .value="${item.permanentCountry}" @input="${e => item.permanentCountry = e.target.value}"></h1>
                 <h1><strong>Permanent State:</strong><br><input type="text" .value="${item.permanentState}" @input="${e => item.permanentState = e.target.value}"></h1>
                 <h1><strong>Permanent Zip:</strong><br><input type="text" .value="${item.permanentZip}" @input="${e => item.permanentZip = e.target.value}"></h1>
-      
-</div>
+                <div class="image-container">
+                <img src="${item.image}" alt="Profile Image">
+                <input type="file" @change="${event => this.handleImageChange(event, item)}" accept="image/*">
+                </div>
+
+          </div>
 
               
-            <div class="btn">
+          <div class="btn">
               
-                  <button @click="${() => this.saveUser(item)}" id="save">Save</button>
-                  <button @click="${() => this.cancelEdit()}" id="cancel">Cancel</button>
-            </div>
+            <button @click="${() => this.saveUser(item)}" id="save">Save</button>
+            <button @click="${() => this.cancelEdit(item)}" id="cancel">Cancel</button>
+          </div>
               
-              </div>  
-            ` : ''}
-            </li>
+        </div>  
+      </div>
+    </div>
+
+    <div class="btn">
+    <button class="up" @click="${this.openNav}">Update</button>
+    <button class="delete-button" @click="${() => this.confirmDeleteUser(item)}">Delete</button>
+    
+    </div>
+` : ''}
+           
+
+
+  </li>
       `)} 
 </ol>
       
     </div>
     
     `;
+}
+openNav() {
+  const myNav = this.shadowRoot.getElementById('myNav');
+  myNav.style.width = '100%';
 }
 
 
@@ -332,26 +525,49 @@ deleteUser(user) {
     this.formData.splice(index, 1);
     localStorage.setItem("formData", JSON.stringify(this.formData));
     this.requestUpdate();
+    window.location.reload();
   }
 }
 editUser(user) {
     this.editingUser = user;
     this.requestUpdate();
   }
+
+  handleImageChange(event, user) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      user.image = reader.result;
+      this.requestUpdate();
+    };
+    if (file) {
+      reader.readAsDataURL(file);
+    }
+  }
+
+
+
+
   cancelEdit(user) {
     localStorage.setItem("formData", JSON.stringify(this.formData));
     this.editingUser = null;
     this.requestUpdate();
+   
   }
-  saveUser(user) {
+
+  saveUser() {
+  
     localStorage.setItem("formData", JSON.stringify(this.formData));
-    this.editingUser = null;
+    this.editingUser = false;
     this.requestUpdate();
+    alert("Data saved successfully!");
   }
+
+
    handleSearch(e) {
     const query = e.target.value.toLowerCase();
     this.filteredformData = this.formData.filter(
-      emp => emp.name.toLowerCase().includes(query) || emp.empCode.toLowerCase().includes(query)
+      emp => emp.name.toLowerCase().includes(query) || emp.empCode.toLowerCase().includes(query) || emp.officialEmail.toLowerCase().includes(query) || emp.primaryContact.toLowerCase().includes(query)
     );
   }
 
