@@ -125,7 +125,7 @@ constructor() {
     this.correspondenceCityOptions = [
         { label: "Select City", value: "" },
         { label: "Mumbair", value: "mumbai" },
-        { label: "Hyderabad", value: "hyderabadr" },
+        { label: "Hyderabad", value: "hyderabad" },
         { label: "Bengalurur", value: "bengalurur" },
         { label: "Pune", value: "pune" },
         { label: "Delhi", value: "delhi" },
@@ -140,7 +140,7 @@ constructor() {
         { label: "Odisha", value: "odisha" },
         { label: "Rajasthan", value: "Rajasthan" },
         { label: "Uttar Pradesh", value: "Uttar Pradesh" },
-        { label: "Assam", value: "Assamt" },
+        { label: "Assam", value: "Assam" },
     ];
     this.correspondenceCountryOptions = [
         { label: "Select Country", value: "" },
@@ -166,7 +166,7 @@ constructor() {
     this.permanentCityOptions = [
         { label: "Select City", value: "" },
         { label: "Mumbair", value: "mumbai" },
-        { label: "Hyderabad", value: "hyderabadr" },
+        { label: "Hyderabad", value: "hyderabad" },
         { label: "Bengalurur", value: "bengalurur" },
         { label: "Pune", value: "pune" },
         { label: "Delhi", value: "delhi" },
@@ -181,7 +181,7 @@ constructor() {
         { label: "Odisha", value: "odisha" },
         { label: "Rajasthan", value: "Rajasthan" },
         { label: "Uttar Pradesh", value: "Uttar Pradesh" },
-        { label: "Assam", value: "Assamt" },
+        { label: "Assam", value: "Assam" },
     ];
     this.permanentCountryOptions = [
         { label: "Select Country", value: "" },

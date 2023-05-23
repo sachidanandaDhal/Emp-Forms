@@ -36,11 +36,11 @@ class FormDataPage extends LitElement {
 
 
     .card {
-  background-color: #fd0000;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  
+  box-shadow: 0 4px 8px 0 rgba(0,0,7,9);
   border-radius: 40px;
   margin-bottom: 20px;
-  overflow: hidden;
+  /* overflow: hidden; */
   background-image: linear-gradient(#74d2f4,#e68dd4);
 }
 
@@ -50,6 +50,7 @@ class FormDataPage extends LitElement {
   color: #ffffff;
   padding: 20px;
   display: flex;
+  
 }
 
 .card-header h2 {
@@ -272,6 +273,13 @@ select {
     .btn #save,
     #cancel {
       margin-left: 90px;
+      width: 150px;
+      height: 30px;
+    }
+    .btn .up,
+    .delete-button {
+      margin-left: 40px;
+      margin-right: 40px;
       width: 150px;
       height: 30px;
     }
