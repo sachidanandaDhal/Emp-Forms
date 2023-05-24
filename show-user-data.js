@@ -40,8 +40,9 @@ class FormDataPage extends LitElement {
   box-shadow: 0 4px 8px 0 rgba(0,0,7,9);
   border-radius: 40px;
   margin-bottom: 20px;
-  /* overflow: hidden; */
+  overflow: hidden;
   background-image: linear-gradient(#74d2f4,#e68dd4);
+  border: 1px solid black;
 }
 
 .card-header {
