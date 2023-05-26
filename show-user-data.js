@@ -21,87 +21,90 @@ class FormDataPage extends LitElement {
   
   static styles = css`
   
+  *{
+    margin: 1px;
+    padding: 0.4px;
+    box-sizing: border-box;
+    
+  }
     :host{
     display: block;
+    
+    background: linear-gradient(-45deg, #240e18, #580455, #144253, #351a63);
+    background-size: 400% 400%;
+    animation: gradient 10s ease infinite;
+    display: flex;
     justify-content: center;
     align-items: center;
-    /* min-height: 90vh; */
-    background: linear-gradient(-45deg, #d585aa, #db96af, #88cae1, #bda7e3);
-      background-size: 400% 400%;
-      animation: gradient 10s ease infinite;
-  
+    height:  infinite;
+    width: 100%;
     
-
-}
-
+    color: white;
+    }
 
     .card {
-  
-  box-shadow: 0 4px 8px 0 rgba(0,0,7,9);
+  box-shadow: 0 4px 8px 0 rgba(0,0,1,5);
   border-radius: 40px;
-  margin-bottom: 20px;
-  overflow: hidden;
   background-image: linear-gradient(#74d2f4,#e68dd4);
-  border: 1px solid black;
+  display: flex;
+    justify-content: space-around;
+    align-items: left;
+    flex-direction: column;
+    height: 800px;
+    width: 500px;
+    margin-left: 90px;
+    margin-top: 30px;
+    color: black;
+    font-size: 16px;
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 1px 1px 20px #000000,
+                1px 1px 40px #000000;
+        
+    float: left;
+    padding: 60px; 
+    text-align: left;
+    font-weight: bold;
+    overflow: hidden;
+    transition: transform .5s;
+  
 }
 
+
+
 .card-header {
-  background-color: #54004a;
   background-image: linear-gradient( #f104d5,#023547);
   color: #ffffff;
-  padding: 20px;
+  border-radius: 20px;
   display: flex;
   
 }
 
-.card-header h2 {
-  margin: 0;
-  font-size: 24px;
-}
 
-.card-header p {
-  margin: 0;
-  font-size: 16px;
-}
 
-.card-body {
-  padding: 20px;
-  display:flex;
 
-}
-.sub-card-body h1{
-  font-size:1.4em;
-  text-decoration:underline;
-  text-decoration-color:#000000;
-  text-decoration-thickness: 3px;
-  text-underline-offset:12px;
-  
-}
-.sub-card-body{
-  padding-left:120px;
-}
+
+
+
 
 .card-body p {
-  margin: 0;
-  padding: 5px 0;
+  color:#0d0101;
 }
 
-.card-body hr {
-  margin: 10px 0;
-  border-top: 1px solid #ccc;
+.card-body h1 {
+ color: black;
 }
 
 #all-table-data {
     margin-top: 10px;
     margin-bottom: 10px;
-    border: 1px solid #ee0909;
+    border: 1px solid #c21111;
     border-radius: 5px;
     padding: 5px;
     font-size: 14px;
-    display: 'flex',
-   
-    
-
+    display: flex;
   }
 
   table {
@@ -139,11 +142,13 @@ class FormDataPage extends LitElement {
   }
   .delete-button:hover {
     background-color: #ff0d00;
+    
   }
 #search-bar{
  width: 30px;
  border-color: #3366cc;
  padding: 1px 500px;
+ 
 
 }
 
@@ -267,8 +272,7 @@ select {
       display: flex;
       justify-content: center;
       margin-top: 5px;
-      margin: 10px;
-      padding: 10px;
+      
       
     }
     .btn #save,
@@ -279,11 +283,10 @@ select {
     }
     .btn .up,
     .delete-button {
-      margin-left: 40px;
-      margin-right: 40px;
-      width: 150px;
-      height: 30px;
+      margin-left: 20px;
+      margin-right: 20px;
     }
+
 
 /* abc */
 
@@ -344,7 +347,7 @@ select {
 
 //image
 .image-container{
-  border-radius: 200px;
+  border-radius: 100px;
   width: 100px;
    height: 100px;
    display: flex;
@@ -371,9 +374,10 @@ render() {
         <label for="search-input" ></label>
         <input type="text" id="search-input" @input="${this.handleSearch}" placeholder="Search.." />
       </div>
-      <ol>
+      
+        <div class="card-list">
         ${this.filteredformData.map(item => html`
-        <li>
+        
         <div class="card">
           <div class="card-header">
           <div class="image-container">
@@ -383,8 +387,8 @@ render() {
            <h2>Name: :${item.name}</h2>
           </div>
           <div class="card-body">
-            <div class="sub-card-body">
-            <h1><strong>Personal Details:</strong></h1>
+            
+            <h1>Personal</h1>
             <p><strong>Employee Code:</strong> ${item.empCode}</p>
             <p><strong>Official Email Address:</strong> ${item.officialEmail}</p>
             <p><strong>Personal Email Address:</strong> ${item.personalEmail}</p>
@@ -393,10 +397,7 @@ render() {
             <p><strong>Emergency Number:</strong> ${item.emergencyContact}</p>
             <p><strong>Department:</strong> ${item.department}</p>
             <p><strong>Designation:</strong>${item.designation}</p>
-            </div>
-            <div class="sub-card-body">
-            
-            <h1><strong>Correspondence Address:</strong></h1>
+            <h1>Correspondence</h1>
             <p><strong>CorrespondenceAddressLine1:</strong>${item.correspondenceAddressLine1}</p>
             <p><strong>CorrespondenceAddressLine2:</strong>${item.correspondenceAddressLine2}</p>
             <p><strong>CorrespondenceLandmark:</strong>${item.correspondenceLandmark}</p>
@@ -404,9 +405,7 @@ render() {
             <p><strong>CorrespondenceState:</strong>${item.correspondenceState}</p>
             <p><strong>CorrespondenceZip:</strong> ${item.correspondenceZip}</p>
             <p><strong>CorrespondenceCountry:</strong>${item.correspondenceCountry}</p>
-            </div>
-            <div class="sub-card-body">
-            <h1><strong>Permanent Address:</strong></h1>
+            <h1>Permanent</h1>
             <p><strong>Permanent AddressLine1:</strong>${item.permanentAddressLine1}</p>
             <p><strong>Permanent AddressLine2:</strong>${item.permanentAddressLine2}</p>
             <p><strong>Permanent Landmark:</strong>${item.permanentLandmark}</p>
@@ -414,13 +413,14 @@ render() {
             <p><strong>Permanent Country:</strong>${item.permanentCountry}</p>
             <p><strong>Permanent State:</strong>${item.permanentState}</p>
             <p><strong>Permanent Zip:</strong> ${item.permanentZip}</p>
-            </div>
+            
             </div>
             <div class="btn">
                   <button @click="${() => this.editUser(item)}">Edit</button>
-                  </div>
-          </div>
-        </div>
+            </div>
+            
+           
+         
         
         
         ${this.editingUser === item ? html`
@@ -503,15 +503,18 @@ render() {
     <div class="btn">
     <button class="up" @click="${this.openNav}">Update</button>
     <button class="delete-button" @click="${() => this.confirmDeleteUser(item)}">Delete</button>
-    
     </div>
 ` : ''}
            
-
-
-  </li>
+          
+           </div> 
+           
+           </div>
+ 
       `)} 
-</ol>
+     
+           </div>
+
       
     </div>
     
