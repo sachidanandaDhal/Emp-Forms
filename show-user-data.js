@@ -52,7 +52,8 @@ class FormDataPage extends LitElement {
     flex-direction: column;
     height: 800px;
     width: 500px;
-    margin-left: 90px;
+    margin-left: 50px;
+    margin-right: 50px;
     margin-top: 30px;
     color: black;
     font-size: 16px;
@@ -64,7 +65,7 @@ class FormDataPage extends LitElement {
                 1px 1px 40px #000000;
         
     float: left;
-    padding: 60px; 
+    padding: 20px; 
     text-align: left;
     font-weight: bold;
     overflow: hidden;
