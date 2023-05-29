@@ -427,7 +427,7 @@ render() {
         ${this.editingUser === item ? html`
        
         <div id="myNav" class="overlay">
-        
+        <sachi-11></sachi-11>
 
         <div class="overlay-content">
         <div  class=table-body>
@@ -437,6 +437,7 @@ render() {
        <div class="cube"></div>
        <div class="cube"></div>
        <div class="cube"></div>
+
           <div class="position33">
             
                 <h1><strong>Name:</strong><br><input type="text" .value="${item.name}" @input="${e => item.name = e.target.value}"></h1>
