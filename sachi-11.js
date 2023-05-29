@@ -1,84 +1,84 @@
 import { LitElement, html, css } from "lit-element";
 
 class EmployeeForm extends LitElement {
-    static get properties() {
+  static get properties() {
     return {
-        name: { type: String },
-        empCode: { type: String }, 
-        email: { type: String },
-        officialEmail: { type: String },
-        personalEmail: { type: String },
-        nameError: { type: String },
-        empCodeError: { type: String },
-        emailError: { type: String },
-        officialEmailError: { type: String },
-        personalEmailError: { type: String },
-        designation: { type: String },
-        designationOptions: { type: Array },
-        designationError: { type: String },
-        department: { type: String },
-        departmentOptions: { type: Array },
-        departmentError: { type: String },
-        primaryContact: { type: String },
-        secondaryContact: { type: String },
-        emergencyContact: { type: String },
-        primaryContactError: { type: String },
-        secondaryContactError: { type: String },
-        emergencyContactError: { type: String },
-        correspondenceAddressLine1: { type: String },
-        correspondenceAddressLine2: { type: String },
-        correspondenceLandmark: { type: String },
-        correspondenceCity: { type: String },
-        correspondenceState: { type: String },
-        correspondenceCountry: { type: String },
-        correspondenceZip: { type: String },
-        correspondenceAddressLine1Error: { type: String },
-        correspondenceAddressLine2Error: { type: String },
-        correspondenceLandmarkError: { type: String },
-        correspondenceCityError: { type: String },
-        correspondenceStateError: { type: String },
-        correspondenceCountryError: { type: String },
-        correspondenceZipError: { type: String },
-        correspondenceCityOptions: { type: Array },
-        correspondenceStateOptions: { type: Array },
-        correspondenceCountryOptions: { type: Array },
-        
-        
-        permanentAddressLine1: { type: String },
-        permanentAddressLine2: { type: String },
-        permanentLandmark: { type: String },
-        permanentCity: { type: String },
-        permanentState: { type: String },
-        permanentCountry: { type: String },
-        permanentZip: { type: String },
-        permanentAddressLine1Error: { type: String },
-        permanentAddressLine2Error: { type: String },
-        permanentLandmarkError: { type: String },
-        permanentCityError: { type: String },
-        permanentStateError: { type: String },
-        permanentCountryError: { type: String },
-        permanentZipError: { type: String },
-        permanentCityOptions: { type: Array },
-        permanentStateOptions: { type: Array },
-        permanentCountryOptions: { type: Array },
-        image: { type: String },
+      formData: { type: Array },
+      editingUserIndex: { type: Number },
+      name: { type: String },
+      empCode: { type: String },
+      officialEmail: { type: String },
+      personalEmail: { type: String },
+      nameError: { type: String },
+      empCodeError: { type: String },
+      officialEmailError: { type: String },
+      personalEmailError: { type: String },
+      designation: { type: String },
+      designationOptions: { type: Array },
+      designationError: { type: String },
+      department: { type: String },
+      departmentOptions: { type: Array },
+      departmentError: { type: String },
+      primaryContact: { type: String },
+      secondaryContact: { type: String },
+      emergencyContact: { type: String },
+      primaryContactError: { type: String },
+      secondaryContactError: { type: String },
+      emergencyContactError: { type: String },
+      correspondenceAddressLine1: { type: String },
+      correspondenceAddressLine2: { type: String },
+      correspondenceLandmark: { type: String },
+      correspondenceCity: { type: String },
+      correspondenceState: { type: String },
+      correspondenceCountry: { type: String },
+      correspondenceZip: { type: String },
+      correspondenceAddressLine1Error: { type: String },
+      correspondenceAddressLine2Error: { type: String },
+      correspondenceLandmarkError: { type: String },
+      correspondenceCityError: { type: String },
+      correspondenceStateError: { type: String },
+      correspondenceCountryError: { type: String },
+      correspondenceZipError: { type: String },
+      correspondenceCityOptions: { type: Array },
+      correspondenceStateOptions: { type: Array },
+      correspondenceCountryOptions: { type: Array },
+      
+      
+      permanentAddressLine1: { type: String },
+      permanentAddressLine2: { type: String },
+      permanentLandmark: { type: String },
+      permanentCity: { type: String },
+      permanentState: { type: String },
+      permanentCountry: { type: String },
+      permanentZip: { type: String },
+      permanentAddressLine1Error: { type: String },
+      permanentAddressLine2Error: { type: String },
+      permanentLandmarkError: { type: String },
+      permanentCityError: { type: String },
+      permanentStateError: { type: String },
+      permanentCountryError: { type: String },
+      permanentZipError: { type: String },
+      permanentCityOptions: { type: Array },
+      permanentStateOptions: { type: Array },
+      permanentCountryOptions: { type: Array },
+      image: { type: String },
     };
-    }
+  }
 
-constructor() {
+  constructor() {
     super();
+    this.formData = [];
+    this.editingUserIndex = -1;
     this.name = "";
     this.empCode = "";
-    this.email = "";
     this.officialEmail = "";
     this.personalEmail = "";
-    this.designation = "";
-    this.department = "";
     this.nameError = "";
     this.empCodeError = "";
-    this.emailError = "";
     this.officialEmailError = "";
     this.personalEmailError = "";
+    this.designation = "";
+    this.department = "";
     this.designationError = "";
     this.departmentError = "";
     this.designationOptions = [
@@ -140,7 +140,7 @@ constructor() {
         { label: "Odisha", value: "odisha" },
         { label: "Rajasthan", value: "Rajasthan" },
         { label: "Uttar Pradesh", value: "Uttar Pradesh" },
-        { label: "Assam", value: "Assam" },
+        { label: "Assam", value: "Assamt" },
     ];
     this.correspondenceCountryOptions = [
         { label: "Select Country", value: "" },
@@ -166,7 +166,7 @@ constructor() {
     this.permanentCityOptions = [
         { label: "Select City", value: "" },
         { label: "Mumbair", value: "mumbai" },
-        { label: "Hyderabad", value: "hyderabad" },
+        { label: "Hyderabad", value: "hyderabadr" },
         { label: "Bengalurur", value: "bengalurur" },
         { label: "Pune", value: "pune" },
         { label: "Delhi", value: "delhi" },
@@ -181,32 +181,29 @@ constructor() {
         { label: "Odisha", value: "odisha" },
         { label: "Rajasthan", value: "Rajasthan" },
         { label: "Uttar Pradesh", value: "Uttar Pradesh" },
-        { label: "Assam", value: "Assam" },
+        { label: "Assam", value: "Assamt" },
     ];
     this.permanentCountryOptions = [
         { label: "Select Country", value: "" },
         { label: "India", value: "india" },
         { label: "U.S.", value: "United States" },
         
-    ]
+    ];
     this.image = "";
-    }
+  }
 
-    static get styles() {
+  static get styles(){
     return css`
-     
-     :host{
+    :host{
     display: block;
     justify-content: center;
     align-items: center;
     min-height: 90vh;
-    background-image: linear-gradient(to right,violet, indigo,yellow,green,blue,indigo,violet);
-    
-
-}
+    background-image: linear-gradient(to right,violet,violet);
+    }
 
 
-form {
+    form {
   /* padding:20px; */
   /* display: left; */
   min-height: 90vh;
@@ -238,6 +235,7 @@ select {
   /* border:none; */
 }
 
+
 input:focus,
 select:focus {
   outline: none;
@@ -263,6 +261,7 @@ text-align:center;
 
 
 }
+
 .buttom button{
 margin-left:340px;
 margin-top:20px;
@@ -281,6 +280,11 @@ font-size:1.1em;
   font-size:bold;
   background-image: linear-gradient(to right, #9e5060,#db4fa5);
 }
+
+
+
+
+
 @media (max-width: 500px) {
   .emp{
     width:100%;
@@ -293,22 +297,51 @@ input[type="file"] {
     width:210px ;
 
   }
+    
+   `;}
 
+  updated(changedProperties) {
+    if (changedProperties.has("editingUserIndex")) {
+      if (this.editingUserIndex !== -1) {
+        const user = this.formData[this.editingUserIndex];
+        if (user) {
+        this.name = user.name;
+        this.empCode = user.empCode;
+        this.officialEmail = user.officialEmail;
+        this.personalEmail = user.personalEmail;
+        this.designation = user.designation ;
+        this.department = user.department ;
+        this.primaryContact =  user.primaryContact ;
+        this.secondaryContact = user.secondaryContact ;
+        this.emergencyContact = user.emergencyContact ;
+        this.correspondenceAddressLine1 = user.correspondenceAddressLine1 ;
+        this.correspondenceAddressLine2 = user.correspondenceAddressLine2 ;
+        this.correspondenceLandmark = user.correspondenceLandmark ;
+        this.correspondenceCity = user.correspondenceCity ;
+        this.correspondenceState = user.correspondenceState ;
+        this.correspondenceCountry = user.correspondenceCountry ;
+        this.correspondenceZip = user.correspondenceZip ;
+        this.permanentAddressLine1 = user.permanentAddressLine1 ;
+        this.permanentAddressLine2 = user.permanentAddressLine2 ;
+        this.permanentLandmark = user.permanentLandmark ;
+        this.permanentCity = user.permanentCity ;
+        this.permanentState = user.permanentState ;
+        this.permanentCountry = user.permanentCountry ;
+        this.permanentZip = user.permanentZip ;
+        this.image = user.image ;
 
-
-
-  `;
+        }
+      } else {
+        this.resetForm();
+      }
+    }
   }
-  
 
-    render() {
+  render() {
     return html`
-    
-    <form @submit=${this.handleSubmit}>
-    <div id="bubu">
+      <form @submit=${this.handleSubmit}>
+      <div id="bubu">
       <div class="emp">
-    
-    
         <label for="name-input">Full Name:*</label><br>
         <input type="text" id="name-input" .value=${this.name} @input=${this.validateName }  required />
         <span class="error">${this.nameError}</span>
@@ -387,7 +420,7 @@ input[type="file"] {
         ${this.correspondenceCityOptions.map((option) =>html`<option value="${option.value}">${option.label}</option>`)}
         </select><br>
         
-       
+      
         
         <label for="correspondence-state-input">Correspondence State:*</label><br>
         <select id="correspondence-state-input" class="uni-select" @change=${this.handleCorrespondenceStateChange} required>
@@ -396,7 +429,7 @@ input[type="file"] {
             html`<option value="${option.value}">${option.label}</option>`)}
         </select><br>
         
-       
+      
         <label for="correspondence-country-input">Correspondence Country:*</label><br>
         <select id="correspondence-country-input" class="uni-select" @change=${this.handleCorrespondenceCountryChange} required>
         ${this.correspondenceCountryOptions.map(
@@ -404,7 +437,7 @@ input[type="file"] {
             html`<option value="${option.value}">${option.label}</option>`)}
         </select><br>
         
-       
+      
 
         <label for="correspondence-zip-input"> Correspondence Zip:*</label><br>
         <input type="text" id="correspondence-zip-input" .value=${this.correspondenceZip} @input=${this.validateCorrespondenceZip}  required/>
@@ -413,16 +446,16 @@ input[type="file"] {
         </div>
             <div class="emp">
         <!-- Permanent Address -->
-       
+      
         <label for="permanent-address-line1-input"> Permanent Address Line 1:*</label><br>
         <input type="text" id="permanent-address-line1-input" .value=${this.permanentAddressLine1} @input=${this.validatePermanentAddressLine1} required />
         <span class="error">${this.permanentAddressLine1Error}</span><br>
-       
+      
         <label for="permanent-address-line2-input"> Permanent Address Line 2:*</label><br>
         <input type="text" id="permanent-address-line2-input" .value=${this.permanentAddressLine2} @input=${this.validatePermanentAddressLine2} required />
         <span class="error">${this.permanentAddressLine2Error}</span> <br>
         
-       
+      
         <label for="permanent-landmark-input">Landmark:*</label><br>
         <input type="text" id="permanent-landmark-input" .value=${this.permanentLandmark} @input=${this.validatePermanentLandmark} required/>
         <span class="error">${this.permanentLandmarkError}</span><br>
@@ -444,60 +477,38 @@ input[type="file"] {
         (option) =>
         html`<option value="${option.value}">${option.label}</option>`)}
         </select><br>
-       
+      
         <label for="permanent-state-input">Country:*</label><br>
         <select id="permanent-country-input" class="uni-select" @change=${this.handlePermanentCountryChange} required>
         ${this.permanentCountryOptions.map(
         (option) =>
         html`<option value="${option.value}">${option.label}</option>`)}
         </select><br>
-
         <label for="image-upload">Upload Image:</label><br />
         <input type="file" id="image-upload" accept="image/*" @change=${this.handleImageUpload}  required/>
             <br />
         </div>
-         
-    </form>
-
-    <div class="buttom">
-    <button type="submit">Submit</button></div>
-    
-    
+        
+      </form>
+      <div class="buttom">
+        <button type="submit">${this.editingUserIndex !== -1 ? "Save" : "Add"}</button></div>
     `;
-    }
-
-// validateName(e) {
-//     const name = e.target.value;
-//     if (name.trim() === "" || name.length > 40) {
-//     this.nameError ="Please enter a valid full name (maximum length 40 characters)";
-//     } else {
-//     this.nameError = "";
-//     this.name = name;
-//     }
-//     }
-validateName(e) {
-  const name = e.target.value;
-  switch (true) {
-    case (name.trim() === "" || name.length > 40):
-      this.nameError = "Please enter a valid full name (maximum length 40 characters)";
-      break;
-    default:
-      this.nameError = "";
-      this.name = name;
-      break;
   }
-}
 
-// validateEmpCode(e) {
-//     const empCode = e.target.value;
-//     if (/^[A-Za-z]\d{6}$/.test(empCode)) {
-//     this.empCodeError = "";
-//     this.empCode = empCode;
-//     } else {
-//     this.empCodeError ="Please enter a valid employee code (1 alphabet and 6 digits)";
-//     }
-//     }
-validateEmpCode(e) {
+  validateName(e) {
+    const name = e.target.value;
+    switch (true) {
+      case name.trim() === "" || name.length > 40:
+        this.nameError = "Please enter a valid full name (maximum length 40 characters)";
+        break;
+      default:
+        this.nameError = "";
+        this.name = name;
+        break;
+    }
+  }
+
+  validateEmpCode(e) {
     const empCode = e.target.value;
     switch (true) {
       case /^[A-Za-z]\d{6}$/.test(empCode):
@@ -505,23 +516,12 @@ validateEmpCode(e) {
         this.empCode = empCode;
         break;
       default:
-        this.empCodeError =
-          "Please enter a valid employee code (1 alphabet and 6 digits)";
+        this.empCodeError = "Please enter a valid employee code (1 alphabet and 6 digits)";
         break;
     }
   }
-  
 
-// validateOfficialEmail(e) {
-//     const officialEmail = e.target.value;
-//     if (/^\S+@(annalect)\.com$/.test(officialEmail)) {
-//     this.officialEmailError = "";
-//     this.officialEmail = officialEmail;
-//     } else {
-//     this.officialEmailError = "Please enter a valid official email address";
-//     }
-//     }
-validateOfficialEmail(e) {
+  validateOfficialEmail(e) {
     const officialEmail = e.target.value;
     switch (true) {
       case /^\S+@(annalect)\.com$/.test(officialEmail):
@@ -533,488 +533,316 @@ validateOfficialEmail(e) {
         break;
     }
   }
-  
 
-// validatePersonalEmail(e) {
-//     const personalEmail = e.target.value;
-//     if (/^\S+@(gmail|yahoo|outlook)\.com$/.test(personalEmail)) {
-//     this.personalEmailError = "";
-//     this.personalEmail = personalEmail;
-//     } else {
-//     this.personalEmailError = "Please enter a valid personal email address";
-//     }
-//     }
-validatePersonalEmail(e) {
+  validatePersonalEmail(e) {
     const personalEmail = e.target.value;
     switch (true) {
-        case /^\S+@gmail\.com$/.test(personalEmail):
-        case /^\S+@yahoo\.com$/.test(personalEmail):
-        case /^\S+@outlook\.com$/.test(personalEmail):
-            this.personalEmailError = "";
-            this.personalEmail = personalEmail;
-            break;
-        default:
-            this.personalEmailError = "Please enter a valid personal email address";
-            break;
+      case /^\S+@gmail\.com$/.test(personalEmail):
+      case /^\S+@yahoo\.com$/.test(personalEmail):
+      case /^\S+@outlook\.com$/.test(personalEmail):
+        this.personalEmailError = "";
+        this.personalEmail = personalEmail;
+        break;
+      default:
+        this.personalEmailError = "Please enter a valid personal email address";
+        break;
     }
-}
+  }
 
-// handleDesignationChange(e) {
-//     const designation = e.target.value;
-//     if (designation === "") {
-//         this.designationError = "Please select a designation";
-//     } else {
-//         this.designationError = "";
-//         this.designation = designation;
-//     }
-//     }
+ 
 handleDesignationChange(e) {
-    const designation = e.target.value;
-    switch (designation) {
-        case "":
-            this.designationError = "Please select a designation";
-            break;
-        default:
-            this.designationError = "";
-            this.designation = designation;
-            break;
-    }
+  const designation = e.target.value;
+  switch (designation) {
+      case "":
+          this.designationError = "Please select a designation";
+          break;
+      default:
+          this.designationError = "";
+          this.designation = designation;
+          break;
+  }
 }
 
-// handleDepartmentChange(e) {
-//     const department = e.target.value;
-//     if (department === "") {
-//         this.departmentError = "Please select a department";
-//     } else {
-//         this.departmentError = "";
-//         this.department = department;
-//     }
-//     }
+
 handleDepartmentChange(e) {
-    const department = e.target.value;
-    switch (department) {
-        case "":
-            this.departmentError = "Please select a department";
-            break;
-        default:
-            this.departmentError = "";
-            this.department = department;
-            break;
-    }
+  const department = e.target.value;
+  switch (department) {
+      case "":
+          this.departmentError = "Please select a department";
+          break;
+      default:
+          this.departmentError = "";
+          this.department = department;
+          break;
+  }
 }
 
-// validatePrimaryContact(e) {
-//     const primaryContact = e.target.value;
-//     if (/^\d{10}$/.test(primaryContact)) {
-//         this.primaryContactError = "";
-//         this.primaryContact = primaryContact;
-//     } else {
-//         this.primaryContactError =
-//         "Please enter a valid 10-digit primary contact number";
-//     }
-//     }
+
 validatePrimaryContact(e) {
-    const primaryContact = e.target.value;
-    switch (true) {
-      case /^\d{10}$/.test(primaryContact):
-        this.primaryContactError = "";
-        this.primaryContact = primaryContact;
-        break;
-      default:
-        this.primaryContactError =
-          "Please enter a valid 10-digit primary contact number";
-        break;
-    }
+  const primaryContact = e.target.value;
+  switch (true) {
+    case /^\d{10}$/.test(primaryContact):
+      this.primaryContactError = "";
+      this.primaryContact = primaryContact;
+      break;
+    default:
+      this.primaryContactError =
+        "Please enter a valid 10-digit primary contact number";
+      break;
   }
-  
+}
 
-// validateSecondaryContact(e) {
-//     const secondaryContact = e.target.value;
-//     if (/^\d{10}$/.test(secondaryContact)) {
-//         this.secondaryContactError = "";
-//         this.secondaryContact = secondaryContact;
-//     } else {
-//         this.secondaryContactError =
-//         "Please enter a valid 10-digit secondary contact number";
-//     }
-//     }
-    validateSecondaryContact(e) {
-        const secondaryContact = e.target.value;
-        switch(true) {
-          case /^\d{10}$/.test(secondaryContact):
-            this.secondaryContactError = "";
-            this.secondaryContact = secondaryContact;
-            break;
-          default:
-            this.secondaryContactError = "Please enter a valid 10-digit secondary contact number";
-            break;
-        }
+
+
+  validateSecondaryContact(e) {
+      const secondaryContact = e.target.value;
+      switch(true) {
+        case /^\d{10}$/.test(secondaryContact):
+          this.secondaryContactError = "";
+          this.secondaryContact = secondaryContact;
+          break;
+        default:
+          this.secondaryContactError = "Please enter a valid 10-digit secondary contact number";
+          break;
       }
-      
-// validateEmergencyContact(e) {
-//     const emergencyContact = e.target.value;
-//     if (/^\d{10}$/.test(emergencyContact)) {
-//         this.emergencyContactError = "";
-//         this.emergencyContact = emergencyContact;
-//     } else {
-//         this.emergencyContactError =
-//         "Please enter a valid 10-digit emergency contact number";
-//     }
-//     }
+    }
+    
+
 validateEmergencyContact(e) {
-    const emergencyContact = e.target.value;
-    switch (true) {
-      case /^\d{10}$/.test(emergencyContact):
-        this.emergencyContactError = "";
-        this.emergencyContact = emergencyContact;
-        break;
-      default:
-        this.emergencyContactError =
-          "Please enter a valid 10-digit emergency contact number";
-        break;
-    }
+  const emergencyContact = e.target.value;
+  switch (true) {
+    case /^\d{10}$/.test(emergencyContact):
+      this.emergencyContactError = "";
+      this.emergencyContact = emergencyContact;
+      break;
+    default:
+      this.emergencyContactError =
+        "Please enter a valid 10-digit emergency contact number";
+      break;
+  }
+}
+
+  
+  validateCorrespondenceAddressLine1(e) {
+      const addressLine1 = e.target.value;
+      switch (true) {
+          case addressLine1.trim() === '':
+              this.correspondenceAddressLine1Error = 'Please enter a valid address (maximum length 80 characters)';
+              break;
+          case addressLine1.length > 80:
+              this.correspondenceAddressLine1Error = 'Please enter a valid address (maximum length 80 characters)';
+              break;
+          default:
+              this.correspondenceAddressLine1Error = '';
+              this.correspondenceAddressLine1 = addressLine1;
+              break;
+      }
   }
   
-    // validateCorrespondenceAddressLine1(e) {
-    //     const addressLine1 = e.target.value;
-    //     if (addressLine1.trim() === '' || addressLine1.length > 80) {
-    //         this.correspondenceAddressLine1Error = 'Please enter a valid address (maximum length 80 characters)';
-    //     } else {
-    //         this.correspondenceAddressLine1Error = '';
-    //         this.correspondenceAddressLine1 = addressLine1;
-    //     }
-    //     }
-    validateCorrespondenceAddressLine1(e) {
-        const addressLine1 = e.target.value;
-        switch (true) {
-            case addressLine1.trim() === '':
-                this.correspondenceAddressLine1Error = 'Please enter a valid address (maximum length 80 characters)';
-                break;
-            case addressLine1.length > 80:
-                this.correspondenceAddressLine1Error = 'Please enter a valid address (maximum length 80 characters)';
-                break;
-            default:
-                this.correspondenceAddressLine1Error = '';
-                this.correspondenceAddressLine1 = addressLine1;
-                break;
-        }
-    }
-    
-        // validateCorrespondenceAddressLine2(e) {
-        //     const addressLine2 = e.target.value;
-        //     if (addressLine2.trim() === '' || addressLine2.length > 80) {
-        //         this.correspondenceAddressLine2Error = 'Please enter a valid address (maximum length 80 characters)';
-        //     } else {
-        //         this.correspondenceAddressLine2Error = '';
-        //         this.correspondenceAddressLine2 = addressLine2;
-        //     }
-        //     }
-        validateCorrespondenceAddressLine2(e) {
-            const addressLine2 = e.target.value;
-            switch (true) {
-                case (addressLine2.trim() === '' || addressLine2.length > 80):
-                    this.correspondenceAddressLine2Error = 'Please enter a valid address (maximum length 80 characters)';
-                    break;
-                default:
-                    this.correspondenceAddressLine2Error = '';
-                    this.correspondenceAddressLine2 = addressLine2;
-                    break;
-            }
-        }
-        
-    // validateCorrespondenceLandmark(e) {
-    //     const landmark = e.target.value;
-    //     if (landmark.trim() === '' || landmark.length > 50) {
-    //         this.correspondenceLandmarkError = 'Please enter a valid Landmark (maximum length 50 characters)';
-    //     } else {
-    //         this.correspondenceLandmarkError = '';
-    //         this.correspondenceLandmark = landmark;
-    //     }
-    //     }
-    validateCorrespondenceLandmark(e) {
-        const landmark = e.target.value;
-        switch (true) {
-            case (landmark.trim() === '' || landmark.length > 50):
-                this.correspondenceLandmarkError = 'Please enter a valid Landmark (maximum length 50 characters)';
-                break;
-            default:
-                this.correspondenceLandmarkError = '';
-                this.correspondenceLandmark = landmark;
-                break;
-        }
-    }
-    
-    // handleCorrespondenceCityChange(e) {
-    //     const correspondenceCity = e.target.value;
-    //     if (correspondenceCity === "") {
-    //         this.correspondenceCityError = "Please select a City";
-    //     } else {
-    //         this.correspondenceCityError = "";
-    //         this.correspondenceCity = correspondenceCity;
-    //     }
-    //     }
-    handleCorrespondenceCityChange(e) {
-        const correspondenceCity = e.target.value;
-        switch (correspondenceCity) {
-          case "":
-            this.correspondenceCityError = "Please select a City";
-            break;
-          default:
-            this.correspondenceCityError = "";
-            this.correspondenceCity = correspondenceCity;
-            break;
-        }
+   
+      validateCorrespondenceAddressLine2(e) {
+          const addressLine2 = e.target.value;
+          switch (true) {
+              case (addressLine2.trim() === '' || addressLine2.length > 80):
+                  this.correspondenceAddressLine2Error = 'Please enter a valid address (maximum length 80 characters)';
+                  break;
+              default:
+                  this.correspondenceAddressLine2Error = '';
+                  this.correspondenceAddressLine2 = addressLine2;
+                  break;
+          }
       }
       
-    // handleCorrespondenceStateChange(e) {
-    //     const correspondenceState = e.target.value;
-    //     if (correspondenceState === "") {
-    //         this.correspondenceStateError = "Please select a State";
-    //     } else {
-    //         this.correspondenceStateError = "";
-    //         this.correspondenceState = correspondenceState;
-    //     }
-    //     }
-
-    handleCorrespondenceStateChange(e) {
-        const correspondenceState = e.target.value;
-        switch (correspondenceState) {
-          case "":
-            this.correspondenceStateError = "Please select a State";
-            break;
-          default:
-            this.correspondenceStateError = "";
-            this.correspondenceState = correspondenceState;
-            break;
-        }
-      }
-      // handleCorrespondenceCountryChange(e) {
-    //     const correspondenceCountry = e.target.value;
-    //     if (correspondenceCountry === "") {
-    //         this.correspondenceCountryError = "Please select a Country";
-    //     } else {
-    //         this.correspondenceCountryError = "";
-    //         this.correspondenceCountry = correspondenceCountry;
-    //     }
-    //     }
-      handleCorrespondenceCountryChange(e) {
-        const correspondenceCountry = e.target.value;
-        switch (correspondenceCountry) {
-          case "":
-            this.correspondenceCountryError = "Please select a Country";
-            break;
-          default:
-            this.correspondenceCountryError = "";
-            this.correspondenceCountry = correspondenceCountry;
-            break;
-        }
-      }
-          
-    
-    // validateCorrespondenceZip(e) {
-    //     const zip = e.target.value;
-    //     if (/^\d{6}$/.test(zip)) {
-    //         this.correspondenceZipError = '';
-    //         this.correspondenceZip = zip;
-    //     } else {
-    //       this.correspondenceZipError = 'Please enter a valid zip code (6 digits only)';
-    //     }
-    //   }
-      validateCorrespondenceZip(e) {
-        const zip = e.target.value;
-        switch (true) {
-          case /^\d{6}$/.test(zip):
-            this.correspondenceZipError = "";
-            this.correspondenceZip = zip;
-            break;
-          default:
-            this.correspondenceZipError =
-              "Please enter a valid zip code (6 digits only)";
-            break;
-        }
-      }
-      
-    
-      // Validation methods for Permanent Address
-
-
-    //   validatePermanentAddressLine1(e) {
-    //     const addressLine1 = e.target.value;
-    //     if (addressLine1.trim() === '' || addressLine1.length > 80) {
-    //       this.permanentAddressLine1Error = 'Please enter a valid address (maximum length 80 characters)';
-    //     } else {
-    //       this.permanentAddressLine1Error = '';
-    //       this.permanentAddressLine1 = addressLine1;
-    //     }
-    //   }
-    validatePermanentAddressLine1(e) {
-        const addressLine1 = e.target.value;
-        switch (true) {
-          case (addressLine1.trim() === '' || addressLine1.length > 80):
-            this.permanentAddressLine1Error = 'Please enter a valid address (maximum length 80 characters)';
-            break;
-          default:
-            this.permanentAddressLine1Error = '';
-            this.permanentAddressLine1 = addressLine1;
-            break;
-        }
-      }
-      
-    //   validatePermanentAddressLine2(e) {
-    //     const addressLine2 = e.target.value;
-    //     if (addressLine2.trim() === '' || addressLine2.length > 80) {
-    //       this.permanentAddressLine2Error = 'Please enter a valid address (maximum length 80 characters)';
-    //     } else {
-    //       this.permanentAddressLine2Error = '';
-    //       this.permanentAddressLine2 = addressLine2;
-    //     }
-    //   }
-    validatePermanentAddressLine2(e) {
-        const addressLine2 = e.target.value;
-        switch (true) {
-          case addressLine2.trim() === '':
-          case addressLine2.length > 80:
-            this.permanentAddressLine2Error = 'Please enter a valid address (maximum length 80 characters)';
-            break;
-          default:
-            this.permanentAddressLine2Error = '';
-            this.permanentAddressLine2 = addressLine2;
-            break;
-        }
-      }
-      
-      // validatePermanentLandmark(e) {
-      //   const landmark = e.target.value;
-      //   if (landmark.trim() === '' || landmark.length > 50) {
-      //     this.permanentLandmarkError = 'Please enter a valid Landmark (maximum length 50 characters)';
-      //   } else {
-      //     this.permanentLandmarkError = '';
-      //     this.PermanentLandmark = landmark;
-      //   }
-      // }
-
-      validatePermanentLandmark(e) {
-        const landmark = e.target.value;
-        switch (true) {
+ 
+  validateCorrespondenceLandmark(e) {
+      const landmark = e.target.value;
+      switch (true) {
           case (landmark.trim() === '' || landmark.length > 50):
-            this.permanentLandmarkError = 'Please enter a valid Landmark (maximum length 50 characters)';
-            break;
+              this.correspondenceLandmarkError = 'Please enter a valid Landmark (maximum length 50 characters)';
+              break;
           default:
-            this.permanentLandmarkError = '';
-            this.PermanentLandmark = landmark;
-            break;
-        }
+              this.correspondenceLandmarkError = '';
+              this.correspondenceLandmark = landmark;
+              break;
       }
-      
-    //   handlePermanentCityChange(e) {
-    //     const permanentCity = e.target.value;
-    //     if (permanentCity === "") {
-    //       this.permanentCityError = "Please select a City";
-    //     } else {
-    //       this.permanentCityError = "";
-    //       this.permanentCity = permanentCity;
-    //     }
-    //   }
-    handlePermanentCityChange(e) {
-        const permanentCity = e.target.value;
-        switch (permanentCity) {
-          case "":
-            this.permanentCityError = "Please select a City";
-            break;
-          default:
-            this.permanentCityError = "";
-            this.permanentCity = permanentCity;
-            break;
-        }
+  }
+  
+  
+  handleCorrespondenceCityChange(e) {
+      const correspondenceCity = e.target.value;
+      switch (correspondenceCity) {
+        case "":
+          this.correspondenceCityError = "Please select a City";
+          break;
+        default:
+          this.correspondenceCityError = "";
+          this.correspondenceCity = correspondenceCity;
+          break;
       }
-
-      
-      
-      // handlePermanentStateChange(e) {
-      //   const permanentState = e.target.value;
-      //   if (permanentState === "") {
-      //     this.permanentStateError = "Please select a State";
-      //   } else {
-      //     this.permanentStateError = "";
-      //     this.permanentState = permanentState;
-      //   }
-      // }
-      handlePermanentStateChange(e) {
-        const permanentState = e.target.value;
-        switch (permanentState) {
-          case "":
-            this.permanentStateError = "Please select a State";
-            break;
-          default:
-            this.permanentStateError = "";
-            this.permanentState = permanentState;
-            break;
-        }
-      }
-      
-      // handlePermanentCountryChange(e) {
-      //   const permanentCountry = e.target.value;
-      //   if (permanentCountry === "") {
-      //     this.permanentcorrespondenceCountryError = "Please select a Country";
-      //   } else {
-      //     this.permanentCountryError = "";
-      //     this.permanentCountry = permanentCountry;
-      //   }
-      // }
-
-      handlePermanentCountryChange(e) {
-        const permanentCountry = e.target.value;
-        switch(permanentCountry) {
-          case "":
-            this.permanentcorrespondenceCountryError = "Please select a Country";
-            break;
-          default:
-            this.permanentCountryError = "";
-            this.permanentCountry = permanentCountry;
-            break;
-        }
-      }
-      
+    }
     
-      // validatePermanentZip(e) {
-      //   const zip = e.target.value;
-      //   if (/^\d{6}$/.test(zip)) {
-      //     this.permanentZipError = '';
-      //     this.permanentZip = zip;
-      //   } else {
-      //     this.permanentZipError = 'Please enter a valid zip code (6 digits only)';
-      //   }
-      // }
+ 
 
-      validatePermanentZip(e) {
-        const zip = e.target.value;
-        switch (true) {
-          case /^\d{6}$/.test(zip):
-            this.permanentZipError = '';
-            this.permanentZip = zip;
-            break;
-          default:
-            this.permanentZipError = 'Please enter a valid zip code (6 digits only)';
-            break;
-        }
+  handleCorrespondenceStateChange(e) {
+      const correspondenceState = e.target.value;
+      switch (correspondenceState) {
+        case "":
+          this.correspondenceStateError = "Please select a State";
+          break;
+        default:
+          this.correspondenceStateError = "";
+          this.correspondenceState = correspondenceState;
+          break;
       }
-
-      handleImageUpload(e) {
-        const file = e.target.files[0];
-        const reader = new FileReader();
-    
-        reader.onloadend = () => {
-          this.image = reader.result;
-        };
-    
-        if (file) {
-          reader.readAsDataURL(file);
-        }
+    }
+   
+    handleCorrespondenceCountryChange(e) {
+      const correspondenceCountry = e.target.value;
+      switch (correspondenceCountry) {
+        case "":
+          this.correspondenceCountryError = "Please select a Country";
+          break;
+        default:
+          this.correspondenceCountryError = "";
+          this.correspondenceCountry = correspondenceCountry;
+          break;
       }
+    }
+        
+  
+ 
+    validateCorrespondenceZip(e) {
+      const zip = e.target.value;
+      switch (true) {
+        case /^\d{6}$/.test(zip):
+          this.correspondenceZipError = "";
+          this.correspondenceZip = zip;
+          break;
+        default:
+          this.correspondenceZipError =
+            "Please enter a valid zip code (6 digits only)";
+          break;
+      }
+    }
     
-      
+  
+  
+  validatePermanentAddressLine1(e) {
+      const addressLine1 = e.target.value;
+      switch (true) {
+        case (addressLine1.trim() === '' || addressLine1.length > 80):
+          this.permanentAddressLine1Error = 'Please enter a valid address (maximum length 80 characters)';
+          break;
+        default:
+          this.permanentAddressLine1Error = '';
+          this.permanentAddressLine1 = addressLine1;
+          break;
+      }
+    }
+    
 
-handleSubmit(e) {
+  validatePermanentAddressLine2(e) {
+      const addressLine2 = e.target.value;
+      switch (true) {
+        case addressLine2.trim() === '':
+        case addressLine2.length > 80:
+          this.permanentAddressLine2Error = 'Please enter a valid address (maximum length 80 characters)';
+          break;
+        default:
+          this.permanentAddressLine2Error = '';
+          this.permanentAddressLine2 = addressLine2;
+          break;
+      }
+    }
+    
+  
+
+    validatePermanentLandmark(e) {
+      const landmark = e.target.value;
+      switch (true) {
+        case (landmark.trim() === '' || landmark.length > 50):
+          this.permanentLandmarkError = 'Please enter a valid Landmark (maximum length 50 characters)';
+          break;
+        default:
+          this.permanentLandmarkError = '';
+          this.PermanentLandmark = landmark;
+          break;
+      }
+    }
+    
+  handlePermanentCityChange(e) {
+      const permanentCity = e.target.value;
+      switch (permanentCity) {
+        case "":
+          this.permanentCityError = "Please select a City";
+          break;
+        default:
+          this.permanentCityError = "";
+          this.permanentCity = permanentCity;
+          break;
+      }
+    }
+
+    
+    
+    handlePermanentStateChange(e) {
+      const permanentState = e.target.value;
+      switch (permanentState) {
+        case "":
+          this.permanentStateError = "Please select a State";
+          break;
+        default:
+          this.permanentStateError = "";
+          this.permanentState = permanentState;
+          break;
+      }
+    }
+    
+
+    handlePermanentCountryChange(e) {
+      const permanentCountry = e.target.value;
+      switch(permanentCountry) {
+        case "":
+          this.permanentcorrespondenceCountryError = "Please select a Country";
+          break;
+        default:
+          this.permanentCountryError = "";
+          this.permanentCountry = permanentCountry;
+          break;
+      }
+    }
+    
+  
+  
+
+    validatePermanentZip(e) {
+      const zip = e.target.value;
+      switch (true) {
+        case /^\d{6}$/.test(zip):
+          this.permanentZipError = '';
+          this.permanentZip = zip;
+          break;
+        default:
+          this.permanentZipError = 'Please enter a valid zip code (6 digits only)';
+          break;
+      }
+    }
+
+    handleImageUpload(e) {
+      const file = e.target.files[0];
+      const reader = new FileReader();
+  
+      reader.onloadend = () => {
+        // Store the image data
+        this.image = reader.result;
+      };
+  
+      if (file) {
+        reader.readAsDataURL(file);
+      }
+    }
+
+  handleSubmit(e) {
     e.preventDefault();
     const formData = {
         name: this.name,
@@ -1042,13 +870,31 @@ handleSubmit(e) {
         permanentZip: this.permanentZip,
         image: this.image,
     };
-    const data = JSON.parse(localStorage.getItem("formData") || "[]");
-    data.push(formData);
-    localStorage.setItem("formData", JSON.stringify(data));
-    console.log("Form submitted and data saved to local storage:", formData);
-    alert("Form submitted and data saved to local storage");
+  
+    // Retrieve existing data from local storage
+    const storedData = localStorage.getItem("formData");
+    let employeeData = storedData ? JSON.parse(storedData) : [];
+  
+    // Add the new form data to the array
+    employeeData.push(formData);
+  
+    // Save the updated data back to local storage
+    localStorage.setItem("formData", JSON.stringify(employeeData));
+  
+    // Reset the form
+    // this.resetForm();
+  
+    // Show alert message
+    alert("Data saved in local storage!");
     window.location.reload();
-    }
+  
+    const event = new CustomEvent("save-form", {
+      detail: { formData, index: this.editingUserIndex },
+      bubbles: true,
+      composed: true,
+    });
+    this.dispatchEvent(event);
+  }
+  
 }
-
 customElements.define("sachi-11", EmployeeForm);
