@@ -344,6 +344,35 @@ input[type="file"] {
         <label for="name-input">Full Name:*</label><br>
         <input type="text" id="name-input" .value=${this.name} @input=${this.validateName }  required />
         <span class="error">${this.nameError}</span>
+        <!-- h
+      <sl-input
+          name="name"
+          label="Name"
+          help-text="What would you like people to call you?"
+          autocomplete="off"
+          required
+        ></sl-input>
+        <sl-input
+          name="name"
+          label="Name"
+          help-text="What would you like people to call you?"
+          autocomplete="off"
+          required
+        ></sl-input>
+
+        <sl-input
+  type="text"
+  id="name-input"
+  label="Name"
+  value=${this.name}
+  @input=${this.validateName}
+  required
+></sl-input>
+<sl-icon-button icon="exclamation-triangle-fill" slot="suffix" color="danger"></sl-icon-button>
+<sl-tooltip content=${this.nameError} placement="top-start">
+  <sl-icon-button icon="info-fill" slot="trigger"></sl-icon-button>
+</sl-tooltip> -->
+
         <br>
         <label for="empcode-input">Employee Code:*</label><br>
         <input type="text" id="empcode-input" .value=${this.empCode} @input=${this.validateEmpCode}  required/>
@@ -359,7 +388,34 @@ input[type="file"] {
         <input type="text" id="personal-email-input" .value=${this.personalEmail} @input=${this.validatePersonalEmail}  required/>
         <span class="error">${this.personalEmailError}</span>  
         <br>
-       
+        <!-- h
+      <sl-input
+          name="name"
+          label="Name"
+          help-text="What would you like people to call you?"
+          autocomplete="off"
+          required
+        ></sl-input>
+        <sl-input
+          name="name"
+          label="Name"
+          help-text="What would you like people to call you?"
+          autocomplete="off"
+          required
+        ></sl-input>
+
+        <sl-input
+  type="text"
+  id="name-input"
+  label="Name"
+  value=${this.name}
+  @input=${this.validateName}
+  required
+></sl-input>
+<sl-icon-button icon="exclamation-triangle-fill" slot="suffix" color="danger"></sl-icon-button>
+<sl-tooltip content=${this.nameError} placement="top-start">
+  <sl-icon-button icon="info-fill" slot="trigger"></sl-icon-button>
+</sl-tooltip> -->
         <label for="designation-select">Designation:*</label><br>
         <select id="designation-select" class="uni-select" @change=${this.handleDesignationChange}  required>
         <div class="bubu">
@@ -418,7 +474,34 @@ input[type="file"] {
         <select id="correspondence-city-input" class="uni-select" @change=${this.handleCorrespondenceCityChange} required>
         ${this.correspondenceCityOptions.map((option) =>html`<option value="${option.value}">${option.label}</option>`)}
         </select><br>
-        
+         <!-- h
+      <sl-input
+          name="name"
+          label="Name"
+          help-text="What would you like people to call you?"
+          autocomplete="off"
+          required
+        ></sl-input>
+        <sl-input
+          name="name"
+          label="Name"
+          help-text="What would you like people to call you?"
+          autocomplete="off"
+          required
+        ></sl-input>
+
+        <sl-input
+  type="text"
+  id="name-input"
+  label="Name"
+  value=${this.name}
+  @input=${this.validateName}
+  required
+></sl-input>
+<sl-icon-button icon="exclamation-triangle-fill" slot="suffix" color="danger"></sl-icon-button>
+<sl-tooltip content=${this.nameError} placement="top-start">
+  <sl-icon-button icon="info-fill" slot="trigger"></sl-icon-button>
+</sl-tooltip> -->
       
         
         <label for="correspondence-state-input">Correspondence State:*</label><br>
