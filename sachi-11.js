@@ -329,7 +329,6 @@ input[type="file"] {
         this.permanentCountry = user.permanentCountry ;
         this.permanentZip = user.permanentZip ;
         this.image = user.image ;
-
         }
       } else {
         this.resetForm();
