@@ -368,7 +368,7 @@ color:#e41212;
   }
   handleSearch(event) {
     this.searchTerm = event.target.value;
-    this.requestUpdate();
+    this.requestUpdate();                                     
   }
 }
 

@@ -1,4 +1,12 @@
 import { LitElement, html, css } from "lit-element";
+import '@shoelace-style/shoelace/dist/themes/light.css';
+import '@shoelace-style/shoelace/dist/components/button/button.js';
+import '@shoelace-style/shoelace/dist/components/icon/icon.js';
+import '@shoelace-style/shoelace/dist/components/input/input.js';
+import '@shoelace-style/shoelace/dist/components/rating/rating.js';
+import { setBasePath } from '@shoelace-style/shoelace/dist/utilities/base-path.js';
+
+setBasePath('/path/to/shoelace/dist');
 
 class EmployeeForm extends LitElement {
   static get properties() {
@@ -124,7 +132,7 @@ class EmployeeForm extends LitElement {
     this.correspondenceZipError = '';
     this.correspondenceCityOptions = [
         { label: "Select City", value: "" },
-        { label: "Mumbair", value: "mumbai" },
+        { label: "Mumbai", value: "mumbai" },
         { label: "Hyderabad", value: "hyderabad" },
         { label: "Bengalurur", value: "bengalurur" },
         { label: "Pune", value: "pune" },
@@ -344,7 +352,7 @@ input[type="file"] {
         <label for="name-input">Full Name:*</label><br>
         <input type="text" id="name-input" .value=${this.name} @input=${this.validateName }  required />
         <span class="error">${this.nameError}</span>
-        <!-- h
+        <!-- 
       <sl-input
           name="name"
           label="Name"
