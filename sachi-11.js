@@ -1,8 +1,8 @@
 import { LitElement, html, css } from "lit";
 import "@shoelace-style/shoelace/dist/themes/light.css";
 import "@shoelace-style/shoelace/dist/components/button/button.js";
-import '@shoelace-style/shoelace/dist/components/icon/icon.js';
-import '@shoelace-style/shoelace/dist/components/input/input.js';
+import "@shoelace-style/shoelace/dist/components/icon/icon.js";
+import "@shoelace-style/shoelace/dist/components/input/input.js";
 import "@shoelace-style/shoelace/dist/components/rating/rating.js";
 import "@shoelace-style/shoelace/dist/components/option/option.js";
 import "@shoelace-style/shoelace/dist/components/select/select.js";
@@ -202,7 +202,103 @@ class EmployeeForm extends LitElement {
     this.image = "";
   }
 
+  static get styles() {
+    return [
+      css`
+        /* user invalid styles */
+        .inline-validation sl-input[data-user-invalid]::part(base) {
+          border-color: var(--sl-color-danger-700);
+        }
+
+        .inline-validation
+          sl-input:focus-within[data-user-invalid]::part(base) {
+          border-color: var(--sl-color-danger-700);
+          box-shadow: 0 0 0 var(--sl-focus-ring-width)
+            var(--sl-color-danger-300);
+        }
+
+        /* User valid styles */
+        .inline-validation sl-input[data-user-valid]::part(base) {
+          border-color: var(--sl-color-success-600);
+        }
+
+        .inline-validation sl-checkbox[data-user-valid]::part(control) {
+          background-color: var(--sl-color-indigo-400);
+          outline: none;
+        }
+
+        .inline-validation sl-input:focus-within[data-user-valid]::part(base) {
+          border-color: var(--sl-color-success-600);
+          box-shadow: 0 0 0 var(--sl-focus-ring-width)
+            var(--sl-color-success-300);
+        }
+        .error {
+          font-size: var(--sl-input-help-text-font-size-medium);
+          color: var(--sl-color-danger-500);
+          color: red;
+        }
+
+        .error ~ sl-button {
+          margin-top: var(--sl-spacing-medium);
+        }
+
+        sl-input,
+        sl-select,
+        label {
+          font-weight: bold;
+          margin-left: 10px;
+          width: 240px;
+          color: #ffffff;
+        }
+        sl-input {
+          width: 240px;
+        }
+        sl-select {
+          width: 240px;
+        }
+
+        form {
+          background-image: url("b5.webp");
+        }
+
+        #bubu {
+          flex-wrap: wrap;
+          gap: 5rem;
+          align-items: center;
+          justify-content: center;
+          margin-left: 3rem;
+          margin-right: 3em;
+          animation: mymove 5s infinite;
+          box-shadow: 0px 0px 15px currentcolor;
+          border: 5px solid currentcolor;
+          padding-top: 10px;
+          display: flex;
+          backdrop-filter: blur(10px);
+          background-color: #0a09098d;
+          border: 1px solid #13010100;
+        }
+        .emp {
+          height: 480px;
+          margin-left: 10px;
+          margin-right: 10px;
+          line-height: 110%;
+        }
+        sl-button {
+          width: 250px;
+          height: 60px;
+        }
+        .img {
+  border: 1px solid #f7f0f0;
+  padding: 5px;
+  width: 230px;
+  color: #f7f0f0;
   
+}
+
+        
+      `,
+    ];
+  }
 
   updated(changedProperties) {
     if (changedProperties.has("editingUserIndex")) {
@@ -227,7 +323,7 @@ class EmployeeForm extends LitElement {
           this.correspondenceZip = user.correspondenceZip;
           this.permanentAddressLine1 = user.permanentAddressLine1;
           this.permanentAddressLine2 = user.permanentAddressLine2;
-          this.PermanentLandmark = user.PermanentLandmark;
+          this.permanentLandmark = user.permanentLandmark;
           this.permanentCity = user.permanentCity;
           this.permanentState = user.permanentState;
           this.permanentCountry = user.permanentCountry;
@@ -245,18 +341,23 @@ class EmployeeForm extends LitElement {
           <div class="emp">
             <sl-input
               label="Name"
+              placeholder="Name"
+              size="small"
               id="name-input"
               .value=${this.name}
               @input=${this.validateName}
               autocomplete="off"
               required
-            ></sl-input>
+              >
+            </sl-input>
             <span class="error">${this.nameError}</span>
             <br />
 
             <sl-input
               label="Employee Code"
+              size="small"
               type="text"
+              placeholder="Ex-A123456"
               id="empcode-input"
               .value=${this.empCode}
               @input=${this.validateEmpCode}
@@ -267,7 +368,9 @@ class EmployeeForm extends LitElement {
 
             <sl-input
               label="Official Email"
+              size="small"
               type="text"
+              placeholder="Ex- abc@annalect.com"
               id="official-email-input"
               .value=${this.officialEmail}
               @input=${this.validateOfficialEmail}
@@ -278,6 +381,8 @@ class EmployeeForm extends LitElement {
 
             <sl-input
               label="Personal Email Address"
+              size="small"
+              placeholder="Ex-abc@gmail.com,@yahoo"
               type="text"
               id="personal-email-input"
               .value=${this.personalEmail}
@@ -288,8 +393,8 @@ class EmployeeForm extends LitElement {
             <br />
 
             <sl-select
-              -
               label="Designation"
+              size="small"
               clearable
               value=""
               id="designation-select"
@@ -309,6 +414,7 @@ class EmployeeForm extends LitElement {
 
             <sl-select
               label="Department"
+              size="small"
               clearable
               value=""
               id="department-select"
@@ -328,6 +434,7 @@ class EmployeeForm extends LitElement {
 
             <sl-input
               label="Primary Number:"
+              size="small"
               clearable
               value=""
               type="tel"
@@ -341,6 +448,7 @@ class EmployeeForm extends LitElement {
 
             <sl-input
               label="Secondary Number:"
+              size="small"
               type="tel"
               id="secondary-contact-input"
               value="${this.secondaryContact}"
@@ -354,6 +462,7 @@ class EmployeeForm extends LitElement {
           <div class="emp">
             <sl-input
               label="Emergency Number"
+              size="small"
               id="emergency-contact-input"
               type="tel"
               value="${this.emergencyContact}"
@@ -365,6 +474,7 @@ class EmployeeForm extends LitElement {
 
             <sl-input
               label="Correspondence Address Line 1"
+              size="small"
               id="correspondence-address-line1-input"
               type="text"
               value="${this.correspondenceAddressLine1}"
@@ -376,6 +486,7 @@ class EmployeeForm extends LitElement {
 
             <sl-input
               label="Correspondence Address Line 2"
+              size="small"
               id="correspondence-address-line2-input"
               type="text"
               value="${this.correspondenceAddressLine2}"
@@ -386,6 +497,7 @@ class EmployeeForm extends LitElement {
 
             <sl-input
               label="Correspondence Landmark"
+              size="small"
               id="correspondence-landmark-input"
               type="text"
               value="${this.correspondenceLandmark}"
@@ -397,6 +509,7 @@ class EmployeeForm extends LitElement {
 
             <sl-select
               label="Correspondence City"
+              size="small"
               clearable
               value=""
               id="correspondence-city-input"
@@ -416,6 +529,7 @@ class EmployeeForm extends LitElement {
 
             <sl-select
               label="Correspondence State"
+              size="small"
               clearable
               value=""
               id="correspondence-state-input"
@@ -435,6 +549,7 @@ class EmployeeForm extends LitElement {
 
             <sl-select
               label="Correspondence Country"
+              size="small"
               clearable
               value=""
               id="correspondence-country-input"
@@ -454,6 +569,7 @@ class EmployeeForm extends LitElement {
 
             <sl-input
               label=" Correspondence Zip"
+              size="small"
               type="text"
               id="correspondence-zip-input"
               value=${this.correspondenceZip}
@@ -469,6 +585,7 @@ class EmployeeForm extends LitElement {
 
             <sl-input
               label=" Permanent Address Line 1"
+              size="small"
               id="permanent-address-line1-input"
               type="text"
               value="${this.permanentAddressLine1}"
@@ -480,6 +597,7 @@ class EmployeeForm extends LitElement {
 
             <sl-input
               label=" Permanent Address Line 2"
+              size="small"
               id="permanent-address-line2-input"
               type="text"
               value="${this.permanentAddressLine2}"
@@ -490,6 +608,7 @@ class EmployeeForm extends LitElement {
 
             <sl-input
               label=" Permanent Landmark"
+              size="small"
               id="permanent-landmark-input"
               type="text"
               value="${this.permanentLandmark}"
@@ -501,6 +620,7 @@ class EmployeeForm extends LitElement {
 
             <sl-select
               label=" Permanent Permanent City"
+              size="small"
               clearable
               value=""
               id="permanent-city-input"
@@ -520,6 +640,7 @@ class EmployeeForm extends LitElement {
 
             <sl-select
               label=" Permanent State"
+              size="small"
               clearable
               value=""
               id="permanent-state-input"
@@ -539,6 +660,7 @@ class EmployeeForm extends LitElement {
 
             <sl-select
               label=" Permanent Country"
+              size="small"
               clearable
               value=""
               id="permanent-country-input"
@@ -558,6 +680,7 @@ class EmployeeForm extends LitElement {
 
             <sl-input
               label=" Permanent Zip"
+              size="small"
               type="text"
               id="permanent-zip-input"
               value=${this.permanentZip}
@@ -567,117 +690,34 @@ class EmployeeForm extends LitElement {
             <span class="error">${this.permanentZipError}</span>
             <br />
 
-            
-            <sl-input
-              label="Upload Image"
+            <label for="image-upload">Upload Image:</label><br />
+            <input
+              class="img"
               type="file"
               id="image-upload"
               accept="image/*"
               @change=${this.handleImageUpload}
-              required
-            ></sl-input>
+            />
           </div>
 
           <sl-button
-          type="submit"
-          @click=${() =>
-            (this.innerHTML = this.editingUserIndex !== -1 ? "Save" : "Add")}
-          >${this.editingUserIndex !== -1 ? "Save" : "Add"}</sl-button
-        >
+            type="submit"
+            variant="success"
+            outline
+            @click=${() =>
+              (this.innerHTML = this.editingUserIndex !== -1 ? "Save" : "Add")}
+            >${this.editingUserIndex !== -1 ? "Save" : "Add"}</sl-button
+          >
         </div>
-
-        
       </form>
     `;
-  }
-
-  static get styles() {
-    return [
-      css`
-        /* user invalid styles */
-        .inline-validation sl-input[data-user-invalid]::part(base) {
-          border-color: var(--sl-color-danger-600);
-        }
-
-
-        .inline-validation
-          sl-input:focus-within[data-user-invalid]::part(base) {
-          border-color: var(--sl-color-danger-600);
-          box-shadow: 0 0 0 var(--sl-focus-ring-width)
-            var(--sl-color-danger-300);
-        }
-
-        /* User valid styles */
-        .inline-validation sl-input[data-user-valid]::part(base) {
-          border-color: var(--sl-color-success-600);
-        }
-
-        
-
-        .inline-validation sl-checkbox[data-user-valid]::part(control) {
-          background-color: var(--sl-color-indigo-400);
-          outline: none;
-        }
-
-        .inline-validation sl-input:focus-within[data-user-valid]::part(base) {
-          border-color: var(--sl-color-success-600);
-          box-shadow: 0 0 0 var(--sl-focus-ring-width)
-            var(--sl-color-success-300);
-        }
-        .error {
-          font-size: var(--sl-input-help-text-font-size-medium);
-          color: var(--sl-color-danger-700);
-        }
-
-        .error ~ sl-button {
-          margin-top: var(--sl-spacing-medium);
-        }
-
-        sl-input,
-        sl-select,
-        label {
-          font-weight: bold;
-          margin-left: 10px;
-        }
-        sl-input {
-          width: 300px;
-        }
-        sl-select {
-          width: 300px;
-        }
-
-        #bubu {
-          flex-wrap: wrap;
-          gap: 5rem;
-          align-items: center;
-          justify-content: center;
-          margin-left: 3rem;
-          margin-right: 3em;
-          background-image: linear-gradient(#ccc3d6, #8aadee);
-          animation: mymove 5s infinite;
-          box-shadow: 0px 0px 15px currentcolor;
-          border: 5px solid currentcolor;
-          padding: 2px;
-          display: flex;
-        }
-        sl-button{
-        margin-left: 30px;
-        margin-top: 10px;
-        width: 330px;
-        height: 40px;
-        color: var(--sl-color-primary-700);
-
-        }
-      `,
-    ];
   }
 
   validateName(e) {
     const name = e.target.value;
     switch (true) {
       case name.trim() === "" || name.length > 40:
-        this.nameError =
-          " Full name (maximum length 40 characters)";
+        this.nameError = " Full name(maximum length 40 characters)";
         this.shadowRoot.getElementById("name-input").required = true;
         break;
       default:
@@ -696,8 +736,7 @@ class EmployeeForm extends LitElement {
         this.empCode = empCode;
         break;
       default:
-        this.empCodeError =
-          "Please enter a valid code (1 alphabet and 6 digits)";
+        this.empCodeError = "Enter a valid code(1 alphabet and 6 digits)";
         break;
     }
   }
@@ -710,8 +749,7 @@ class EmployeeForm extends LitElement {
         this.officialEmail = officialEmail;
         break;
       default:
-        this.officialEmailError =
-          "Please enter a valid official email";
+        this.officialEmailError = "Enter a valid email Ex-##@annalect.com";
         break;
     }
   }
@@ -726,8 +764,7 @@ class EmployeeForm extends LitElement {
         this.personalEmail = personalEmail;
         break;
       default:
-        this.personalEmailError =
-          "Please enter a valid personal email";
+        this.personalEmailError = "Enter a valid email Ex-##@gmail.com";
         break;
     }
   }
@@ -767,7 +804,7 @@ class EmployeeForm extends LitElement {
         break;
       default:
         this.primaryContactError =
-          "Please enter a valid 10-digit primary contact number";
+          "Please enter a valid 10-digit contact number";
         break;
     }
   }
@@ -781,7 +818,7 @@ class EmployeeForm extends LitElement {
         break;
       default:
         this.secondaryContactError =
-          "Please enter a valid 10-digit secondary contact number";
+          "Please enter a valid 10-digit contact number";
         break;
     }
   }
@@ -795,7 +832,7 @@ class EmployeeForm extends LitElement {
         break;
       default:
         this.emergencyContactError =
-          "Please enter a valid 10-digit emergency contact number";
+          "Please enter a valid 10-digit contact number";
         break;
     }
   }
@@ -937,7 +974,7 @@ class EmployeeForm extends LitElement {
         break;
       default:
         this.permanentLandmarkError = "";
-        this.PermanentLandmark = landmark;
+        this.permanentLandmark = landmark;
         break;
     }
   }
@@ -1144,7 +1181,7 @@ class EmployeeForm extends LitElement {
       correspondenceZip: this.correspondenceZip,
       permanentAddressLine1: this.permanentAddressLine1,
       permanentAddressLine2: this.permanentAddressLine2,
-      permanentLandmark: this.PermanentLandmark,
+      permanentLandmark: this.permanentLandmark,
       permanentCity: this.permanentCity,
       permanentState: this.permanentState,
       permanentCountry: this.permanentCountry,
@@ -1164,7 +1201,7 @@ class EmployeeForm extends LitElement {
 
     // Show alert message
     alert("Data saved in local storage!");
-    window.location.reload();
+    // window.location.reload();
 
     const event = new CustomEvent("save-form", {
       detail: { formData, index: this.editingUserIndex },
