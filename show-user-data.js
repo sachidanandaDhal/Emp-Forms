@@ -310,18 +310,18 @@ class FormDataPage extends LitElement {
                     <sl-button variant="primary" outline @click=${() => this.editUser(index)}>Edit</sl-button>
                   </div>
                 </div>
-                ${this.editingUser === index
+                ${this.editingUser  index
                   ? html`
                       <div id="bubuN" class="overlay">
                         <a class="closebtn" @click="${this.closeNav}"
                           >&times;</a
                         >
                         <div class="table-body">
-                          <sachi-11
+                          <sach-11
                             .formData=${this.formData}
                             .editingUserIndex=${index}
                             @save-form=${this.handleSaveForm}
-                          ></sachi-11>
+                          ></sach-11>
                         </div>
                       </div>
                       <div class="btn">

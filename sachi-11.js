@@ -248,7 +248,7 @@ class EmployeeForm extends LitElement {
           font-weight: bold;
           margin-left: 10px;
           width: 240px;
-          color: #ffffff;
+          color: #0c0c0c;
         }
         sl-input {
           width: 240px;
@@ -258,7 +258,8 @@ class EmployeeForm extends LitElement {
         }
 
         form {
-          background-image: url("b5.webp");
+          /* background-image: url("b5.webp"); */
+          background-image: linear-gradient(#74d2f4, #e68dd4);
         }
 
         #bubu {
@@ -273,9 +274,9 @@ class EmployeeForm extends LitElement {
           border: 5px solid currentcolor;
           padding-top: 10px;
           display: flex;
-          backdrop-filter: blur(10px);
+          /* backdrop-filter: blur(10px);
           background-color: #0a09098d;
-          border: 1px solid #13010100;
+          border: 1px solid #13010100; */
         }
         .emp {
           height: 480px;
@@ -341,7 +342,7 @@ class EmployeeForm extends LitElement {
           <div class="emp">
             <sl-input
               label="Name"
-              placeholder="Name"
+              placeholder="Full Name"
               size="small"
               id="name-input"
               .value=${this.name}
@@ -1201,7 +1202,7 @@ class EmployeeForm extends LitElement {
 
     // Show alert message
     alert("Data saved in local storage!");
-    // window.location.reload();
+    window.location.reload();
 
     const event = new CustomEvent("save-form", {
       detail: { formData, index: this.editingUserIndex },
