@@ -310,7 +310,7 @@ class FormDataPage extends LitElement {
                     <sl-button variant="primary" outline @click=${() => this.editUser(index)}>Edit</sl-button>
                   </div>
                 </div>
-                ${this.editingUser  index
+                ${this.editingUser === index
                   ? html`
                       <div id="bubuN" class="overlay">
                         <a class="closebtn" @click="${this.closeNav}"
