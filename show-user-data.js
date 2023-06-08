@@ -386,4 +386,4 @@ class FormDataPage extends LitElement {
   }
 }
 
-customElements.define("show-user-data", FormDataPage);
+customElements.define("show1-user-data", FormDataPage);
