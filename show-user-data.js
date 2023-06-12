@@ -50,7 +50,7 @@ class FormDataPage extends LitElement {
     }
 
     .card-list {
-      background-image: linear-gradient(120deg, #ffffff 0%, #ffffff 100%);
+      background-image: linear-gradient(120deg, #b0d2f0 0%, #b0d2f0 100%);
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
