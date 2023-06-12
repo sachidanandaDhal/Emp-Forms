@@ -1,5 +1,5 @@
 import { LitElement, html, css } from "lit-element";
-import "./sachi-11.js";
+import "./sachi-11";
 import "@shoelace-style/shoelace/dist/themes/light.css";
 import "@shoelace-style/shoelace/dist/components/button/button.js";
 import "@shoelace-style/shoelace/dist/components/icon/icon.js";
@@ -34,15 +34,17 @@ class FormDataPage extends LitElement {
       padding: 0.4px;
       box-sizing: border-box;
     }
+
     
     .card-list{
-      background-image: linear-gradient(-225deg, #A8BFFF 0%, #884D80 100%);
+      background-image: linear-gradient(-225deg, #bac6e8 0%, #e6dbe4 100%);
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
       align-items: center;
       float: left;
       width: 100%;
+      
     }
     .card {
       color: #1b1b1b;
@@ -50,20 +52,26 @@ class FormDataPage extends LitElement {
       height: 455px;
       position: relative;
       /* outline: 6px solid #f5f1f1; */
-      box-shadow: 1px 1px 12px #0c0c0c ;
-      border-radius: 8px;
+      box-shadow: 1px 1px 12px #080005 ;
+      border-radius: 50px;
       line-height: 150%;
       padding: 16px;
       background: #ffffff;
       background-blend-mode: multiply;
-      background-image: linear-gradient(to top, #832555 0%, #1f457a 100%);
       transition: background-color 1s ease-in-out;
       overflow: hidden;
       margin-left: 3rem;
       margin-top: 3rem;
+      
+
+      
+      
+      
+    
     }
+    
     .card-header {
-      background-image: linear-gradient(#ffffff, #714ed3);
+      background-image: linear-gradient(#3e8ff3, #a2cffb);
       color: #080808;
       border-radius: 49px;
       display: flex;
@@ -77,10 +85,11 @@ class FormDataPage extends LitElement {
     .card-header h2{
       margin-top: 25px;
       padding-left: 20px;
+
     }
     .card-front {
       padding: 15px;
-      color: #f8eeee;
+      color: #0c0c0c;
       bottom: 16px;
       left: 0;
       position: absolute;
@@ -89,7 +98,7 @@ class FormDataPage extends LitElement {
       transition: transform 1s cubic-bezier(0.785, 0.135, 0.15, 0.86);
     }
     .card-back {
-      color: #f8f7f7;
+      color: #0f0f0f;
       transform: translateX(130%);
       transition: transform 1s cubic-bezier(0.785, 0.135, 0.15, 0.86);
     }
@@ -99,6 +108,7 @@ class FormDataPage extends LitElement {
     .card:hover .card-back {
       transform: translateX(0);
     }
+
     #all-table-data {
       border: 1px solid #c21111;
       border-radius: 5px;
@@ -106,14 +116,18 @@ class FormDataPage extends LitElement {
       font-size: 14px;
       display: flex;
     }
+
     table {
       width: 100%;
       border-collapse: collapse;
     }
+
     td {
       padding: 5px;
       border: 1px solid #ccc;
     }
+
+
     //image
     .image-container {
       /* border-radius: 100px; */
@@ -123,15 +137,20 @@ class FormDataPage extends LitElement {
       
     }
     .image-container img {
+      /* Add your desired styles for the image here */
+      /* For example: */
+
       border-radius: 50%;
       width: 5rem;
       height: 4.9rem;
+      
     }
     .btn{
       padding-left: 90px
     }
     .buttons{
       padding-left: 40%;
+      width: 500px;
     }
     ///////////////////////////////////////////////////
     .uni-select {
@@ -306,6 +325,7 @@ class FormDataPage extends LitElement {
                   </p>
                   <p><strong>Permanent State:</strong>${item.permanentState}</p>
                   <p><strong>Permanent Zip:</strong> ${item.permanentZip}</p>
+
                   <div class="buttons">
                     <sl-button variant="primary" outline @click=${() => this.editUser(index)}>Edit</sl-button>
                   </div>
@@ -316,16 +336,18 @@ class FormDataPage extends LitElement {
                         <a class="closebtn" @click="${this.closeNav}"
                           >&times;</a
                         >
+
                         <div class="table-body">
-                          <sach-11
+                          <sachi-11
                             .formData=${this.formData}
                             .editingUserIndex=${index}
                             @save-form=${this.handleSaveForm}
-                          ></sach-11>
+                          ></sachi-11>
                         </div>
                       </div>
+
                       <div class="btn">
-                        <sl-button variant="success" outline  @click="${this.openNav}">
+                        <sl-button variant="success" outline @click="${this.openNav}">
                           Update
                         </sl-button>
                         <sl-button 
@@ -354,9 +376,12 @@ class FormDataPage extends LitElement {
     bubuN.style.width = "0%";
     window.location.reload();
   }
+
   editUser(index) {
     this.editingUser = index;
   }
+
+ 
   deleteUser(index) {
     const deletedUserName = this.formData[index].name;
     if (confirm(`Are you sure you want to delete ${deletedUserName}?`))window.location.reload(); {
@@ -366,6 +391,7 @@ class FormDataPage extends LitElement {
       window.location.reload();
     }
   }
+
   handleSaveForm(event) {
     const { formData, index } = event.detail;
     if (index !== -1) {
@@ -386,4 +412,4 @@ class FormDataPage extends LitElement {
   }
 }
 
-customElements.define("show1-user-data", FormDataPage);
+customElements.define("show-user-data", FormDataPage);
