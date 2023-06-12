@@ -4,27 +4,34 @@ class Navbar extends LitElement {
   static get styles() {
     return css`
       nav {
-        background-color: #333;
+        background-color: #585bef;
         color: white;
         display: flex;
         justify-content: space-between;
-        padding: 1rem;
+        padding: 12px;
+        border-radius: 20px;
+        box-shadow: 1px 1px 12px #000;
       }
 
       ul {
         display: flex;
         list-style-type: none;
-        margin: 0;
-        padding: 0;
+       margin: 0;
+       padding: 0;
       }
 
       li {
         margin: 0 1rem;
+        
+      }
+      .logo{
+        margin-left:35px;
       }
 
       a {
         color: white;
         text-decoration: none;
+        margin-right: 20px;
       }
     `;
   }
@@ -32,10 +39,11 @@ class Navbar extends LitElement {
   render() {
     return html`
       <nav>
-        <div>Annalect</div>
+        <div class="logo">Annalect</div>
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="page.html">Data</a></li>
+          
         </ul>
       </nav>
     `;
